@@ -3,6 +3,7 @@ import { Link, useNavigate , useLocation } from "react-router-dom";
 import  React , { useState } from "react";
 import './index.css' ;
 import pikachu from "./pikachu.gif";
+import logo from "../../logo.png";
 
 
 function LoginOrRegister(){
@@ -25,6 +26,7 @@ function LoginOrRegister(){
 
     return (
         <div className="screen">
+            <img className="logo" src={logo} alt="logo PokeWay"/> 
             <div id='stars'></div>
             <div id='stars2'></div>
             <div id='stars3'></div>
