@@ -1,10 +1,14 @@
-import axios from "axios";
 import { Link, useNavigate , useLocation } from "react-router-dom";
 import  React , { useState } from "react";
-import './index.css' ;
+import axios from 'axios';
+import './loginRegister.css' ;
+
 import pikachu from "./pikachu.gif";
 import logo from "../../logo.png";
 
+
+// Senha sempre válida: 
+// user: teste , senha: 12345
 
 function LoginOrRegister(){
     const [user, setUser] = useState('')
@@ -14,10 +18,33 @@ function LoginOrRegister(){
     
     function handleUpdate(event){
         event.preventDefault();
-        console.log(user, password);
-
+        
         if(location.pathname == '/login'){
-            navigate('/home');
+            
+            // Realiza um get  e verifica se o resultado obtido é de um usuario cadastrado
+            let url = "http://localhost:8000/users/login/"
+
+            axios({
+                method:'get',
+                url:url, 
+                data: {
+                    "name":user,
+                    "password":password
+                }
+              }).then(
+                (response) => {
+                    console.log(response)
+
+                    // if(response.data.name == user & response.data.passaword == password){
+                    //     navigate('/home');
+                    // }else{
+                    //     return alert('Usuario ou senha incorretos!');
+                    // };
+                    
+                    }, 
+                (error) => {return alert('Usuario nao cadastrado! Cadastre-se para prosseguir.');}
+              )
+            
         }else{
             navigate('/login');
         }
