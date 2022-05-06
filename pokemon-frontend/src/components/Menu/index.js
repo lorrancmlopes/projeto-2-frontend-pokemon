@@ -46,7 +46,9 @@ function Menu(){
                         
                         <div className="containerMaps">
                             <div className="headerGame">
-                                <h2 className="opMap">Choose a map for play</h2>
+                                <div className="contentHeaderGame">
+                                    <h2 className="opMap">Choose a map for play</h2>
+                                </div>  
                             </div>
                             
                             <div className="maps">
