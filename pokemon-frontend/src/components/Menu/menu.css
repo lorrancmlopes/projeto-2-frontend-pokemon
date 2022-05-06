@@ -178,6 +178,7 @@ to {
 
 .botaoPokemons{
     width: 80%;
+    cursor: pointer;
 }
 
 .botaoLogout{
@@ -188,6 +189,7 @@ to {
 .botaoOut{
     background-color: #cc0000;
     width: 80%;
+    cursor: pointer;
 }
 
 .cardGame{
