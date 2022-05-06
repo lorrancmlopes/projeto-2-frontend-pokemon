@@ -3,6 +3,10 @@ import axios from 'axios';
 import './menu.css' ;
 import logo from "../../logo.png";
 
+import map1 from "../Menu/map1.png";
+import map2 from "../Menu/map2.png";
+import map3 from "../Menu/map3.png";
+
 function Menu(){
 
     return (
@@ -41,11 +45,25 @@ function Menu(){
                     <div className="cardGame">
                         
                         <div className="containerMaps">
-                            <h2 className="opMap">Choose a map for play</h2>
+                            <div className="headerGame">
+                                <h2 className="opMap">Choose a map for play</h2>
+                            </div>
+                            
                             <div className="maps">
-                                <div className="map"></div>
-                                <div className="map"></div>
-                                <div className="map"></div>
+                                <div className="map">
+                                    <img src={map1} alt="map1" className="map1"></img>
+                                    <input type="radio" id="dewey" name="map1" value="dewey" checked></input>
+                                </div>
+
+                                <div className="map">
+                                    <img  src={map2} alt="map2" className="map2"></img>
+                                    <input type="radio" id="dewey" name="map1" value="dewey"></input>
+                                </div>
+
+                                <div className="map">
+                                    <img  src={map3} alt="map3" className="map3"></img>
+                                    <input type="radio" id="dewey" name="map1" value="dewey"></input>
+                                </div>
                             </div>
                         </div>
 

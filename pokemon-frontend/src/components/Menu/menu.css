@@ -104,6 +104,7 @@ to {
 
     margin-top: 1rem;
     margin-bottom: 1rem;
+
 }
 
 .infoPlayer{
@@ -116,7 +117,7 @@ to {
     justify-content: center;
     align-items: center;
 
-    border-radius: 1.2rem;
+    border-radius: 0.7rem;
     border-style: outset;
 }
 
@@ -179,22 +180,34 @@ to {
     flex-direction: column;
 
     width: 70%;
+
+    border-left: 0.05rem black inset;
 }
 
 .containerMaps {
     height: 80%;
     width: 100%;
-    background-color: green;
+}
+
+.headerGame{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: #0a5a0a;
+    border-radius: 0 0.8rem 0 0;
 }
 
 .opMap{
     font-size: large;
-    margin-top: 1.5rem;
+    color: white;
+
+    width: 100%;
+    height: 10%;
 }
 
 .maps {
     height: 80%;
-    background-color: orange;
 
     display: flex;
     justify-content: center;
@@ -202,12 +215,31 @@ to {
 }
 
 .map{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+
     width: 30%;
     height: 90%;
-    background-color: #cc0000;
 
     margin-left: 0.3rem;
     margin-right: 0.3rem;
+
+    border-radius: 0.8rem;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+}
+
+.map:hover {
+    box-shadow: 0 8px 16px 0 rgb(0, 167, 50);
+  }
+
+.map1, .map2 , .map3{
+    width: 10rem;
+    height: 10rem;
+
+    margin-top: 1rem;
 }
 
 .botaoPlay{
