@@ -30,7 +30,7 @@
 }
 
 .logo{
-    margin-top: 1rem;
+    margin-top: 2rem;
     width: 12rem;
 }
 
@@ -83,8 +83,15 @@ a:hover {
     color: white;
     border-radius: 5px;
     width: 15%;
+
+    margin-top: 0.3rem;
+    cursor: pointer;
 }
 
 .pokemonName{
     font-weight: bold;
+}
+
+.pokemonImage{
+    margin-top: 0.6rem;
 }

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import pikachu from "./pikachu.gif";
+import { useNavigate} from "react-router-dom";
 import logo from "../../logo.png";
 import './home.css' ;
 const axios = require("axios");
@@ -10,8 +11,9 @@ function Home(){
     const [srcs, setSrcs] = useState([]);
     const [types, setTypes] = useState([]);
     const [inicialPokemon, setInicialPokemon] = useState("");
-    const pokemonsInicias = ["bulbasaur", "pikachu", "charmander", "squirtle"];
+    const pokemonsInicias = ["bulbasaur", "charmander", "squirtle", "pikachu"];
     
+    const navigate = useNavigate();
     
     async function pegaDados(){
         //let heightsAuxi = [];
@@ -41,6 +43,10 @@ function Home(){
         console.log(event.target.value);
     }
 
+    function changeToMenu(){
+        navigate('/menu')
+    }
+
     return (
         <div className="screen">
             <img className="logo" src={logo} alt="logo PokeWay"/> 
@@ -50,7 +56,7 @@ function Home(){
             
             <div className="backScreen">
                 <div className="pokemonCardConteiner" onChange={(event)=>onChangeValue(event)}>
-                    <p>Choose your Pokémon to begin:</p>
+                    <h3>Choose your Pokémon to begin:</h3>
                     <div className="pokemonCard">
                         <img className="pokemonImage" alt="Bulbasaur" src={srcs[0]}/>
                         <p className="pokemonName">Bulbasaur</p>
@@ -61,7 +67,7 @@ function Home(){
                     </div>
                     <div className="pokemonCard">
                         <img className="pokemonImage" alt="Pikachu" src={srcs[1]}/>
-                        <p className="pokemonName">Pikachu</p>
+                        <p className="pokemonName">Charmander</p>
                         <p>Type: {types[1]}</p>
                         <p>Base Experience: {baseExp[1]}</p>
                         <input type="radio" id="Pikachu" name="pokemonInicial" value="Pikachu"></input>
@@ -69,7 +75,7 @@ function Home(){
                     </div>
                     <div className="pokemonCard">
                         <img className="pokemonImage" alt="Charmander" src={srcs[2]}/>
-                        <p className="pokemonName">Charmander</p>
+                        <p className="pokemonName">Squirtle</p>
                         <p>Type: {types[2]}</p>
                         <p>Base Experience: {baseExp[2]}</p>
                         <input type="radio" id="Charmander" name="pokemonInicial" value="Charmander"></input>
@@ -77,18 +83,14 @@ function Home(){
                     </div>
                     <div className="pokemonCard">
                         <img className="pokemonImage" alt="Squirtle" src={srcs[3]}/>
-                        <p className="pokemonName">Squirtle</p>
+                        <p className="pokemonName">Pikachu</p>
                         <p>Type: {types[3]}</p>
                         <p>Base Experience: {baseExp[3]}</p>
                         <input type="radio" id="Squirtle" name="pokemonInicial" value="Squirtle"></input>
                         <label for="Squirtle"></label>
                     </div>
-                    <p><a class="next">Next &raquo;</a></p>
+                    <button class="next" onClick = {changeToMenu}>Next &raquo;</button>
                 </div>
-            </div>
-
-            <div id="pikachu">
-                <img src={pikachu} alt="running pikachu" className="img_pikachu" />
             </div>
         </div>
     );
