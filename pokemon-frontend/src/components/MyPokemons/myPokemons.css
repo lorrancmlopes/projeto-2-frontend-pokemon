@@ -106,8 +106,8 @@ to {
 }
 
 .favorites{
-    height: 100%;
-    width: 48%;
+    height: 90%;
+    width: 100%;
 
     background-color: white;
     opacity: 1;
@@ -117,7 +117,7 @@ to {
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
+    flex-direction: row;
 }
 
 
@@ -141,22 +141,30 @@ to {
 }
 
 .favoriteCard{
-    width: 100%;
-    height: 50%;
+    height: 45%;
+    width: 40%;
+    background-color: #1b2735;
+    opacity: 1;
+    border-radius: 0.8rem;
     display: flex;
-    flex-direction: row;
-    /* justify-content: center; */
+    justify-content:space-around;
     align-items: center;
-    margin: 0rem;
+    flex-direction: column;
+    margin: 0.5rem;
+    color: white;
 }
 
 .image{
-    max-width:25%;
+    max-width:20%;
     height:auto;
 }
 
 .imageFavoriteCard{
     width: 30%;
+}
+.imageAllCaught{
+    /* max-width:100%; */
+    height:auto;
 }
 
 .infosFavoriteCard{
@@ -188,7 +196,7 @@ a {
     border-radius: 60%;
     position: absolute;
     margin-left: -11rem;
-    margin-top: 1rem;
+    margin-top: 0.25rem;
     background-color: rgb(20, 52, 127);
     color: white;
     align-items: center;
@@ -205,16 +213,17 @@ a {
 }
 
 .AllCaughtCard {
-    height: 18%;
-    width: 18%;
+    height: 45%;
+    width: 40%;
     background-color: #1b2735;
     opacity: 1;
     border-radius: 0.8rem;
     display: flex;
-    justify-content: space-evenly;
+    justify-content:space-around;
     align-items: center;
-    flex-direction: row;
+    flex-direction: column;
     margin: 0.5rem;
+    color: white;
 }
 
 
@@ -243,3 +252,11 @@ a {
     align-content: start;
     justify-content: center;
 }
+
+.favoriteHeader{
+    top: 0;
+    position: absolute;
+}
+
+
+

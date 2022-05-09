@@ -6,6 +6,8 @@ import './myPokemons.css' ;
 
 
 
+
+
 function MyPokemons(){
     const navigate = useNavigate();
     const location = useLocation();
@@ -14,6 +16,8 @@ function MyPokemons(){
     return (
 <div className="screen">
         <img className="logo" src={logo} alt="logo PokeWay"/> 
+            
+
         
         <div id='stars'></div>
         <div id='stars2'></div>
@@ -29,31 +33,24 @@ function MyPokemons(){
                             Favorites
                         </h3>
                     </div>
-                    <div className="favoriteCard">
-                        <div className="imageFavoriteCard">
-                            <img className="image" src="https://http2.mlstatic.com/D_NQ_NP_2X_817705-MLB45153489339_032021-F.webp" alt="testando"/> 
+                    <div className="imagesAllCaughtConteiner">
+                        <div className="favoriteCard">
+                            <div className="AllCaughtCard">
+                                <img className="imageAllCaught" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png" alt="pikachu Teste"/>
+                                <h4>Pikachu</h4>
+                                <p>electry</p>
+                                
+                            </div>
                         </div>
-                        <div className="infosFavoriteCard">
-                            infosFavoriteCard 
-                            blablabla
-                            aaaaaaaaaaaaaaaaaaaaaaaaaa
-                            aaaaaaaaaaaaaaaaa
+
+                        <div className="favoriteCard">
+                            <div className="AllCaughtCard">
+                                <img className="imageAllCaught" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png" alt="pikachu Teste"/>
+                                <h4>Pikachu</h4>
+                                <p>electry</p>
+                            </div>
                         </div>
                     </div>
-
-                    <div className="favoriteCard">
-                        <div className="imageFavoriteCard">
-                            <img className="image" src="https://http2.mlstatic.com/D_NQ_NP_2X_817705-MLB45153489339_032021-F.webp" alt="testando"/> 
-                        </div>
-                        <div className="infosFavoriteCard">
-                            infosFavoriteCard 
-                            blablabla
-                            aaaaaaaaaaaaaaaaaaaaaaaaaa
-                            aaaaaaaaaaaaaaaaa
-                        </div>
-                    </div>
-
-            
                 </div>  
 
                 <div className="allCaught">
@@ -64,23 +61,35 @@ function MyPokemons(){
                     </div>
                     <div className="imagesAllCaughtConteiner">
                         <div className="AllCaughtCard">
-                            <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png" alt="pikachu Teste"/>
+                            <img className="imageAllCaught" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png" alt="pikachu Teste"/>
+                            <h4>Pikachu</h4>
+                            <p>electry</p>
                         </div>
 
                         <div className="AllCaughtCard">
                             <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png" alt="pikachu Teste"/>
+                            <h4>Pikachu</h4>
+                            <h4>electry</h4>
                         </div>
                         <div className="AllCaughtCard">
                             <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png" alt="pikachu Teste"/>
+                            <h4>Pikachu</h4>
+                            <h4>electry</h4>
                         </div>
                         <div className="AllCaughtCard">
                             <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png" alt="pikachu Teste"/>
+                            <h4>Pikachu</h4>
+                            <h4>electry</h4>
                         </div>
                         <div className="AllCaughtCard">
                             <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png" alt="pikachu Teste"/>
+                            <h4>Pikachu</h4>
+                            <h4>electry</h4>
                         </div>
                         <div className="AllCaughtCard">
                             <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png" alt="pikachu Teste"/>
+                            <h4>Pikachu</h4>
+                            <h4>electry</h4>
                         </div>
                         <div className="AllCaughtCard">
                             <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png" alt="pikachu Teste"/>
