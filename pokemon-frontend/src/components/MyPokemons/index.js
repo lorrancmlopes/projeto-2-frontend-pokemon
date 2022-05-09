@@ -26,33 +26,6 @@ function MyPokemons(){
         <div className="backScreenGame">
 
             <div className="container">
-                <div className="favorites" >
-                    <div className="favoriteHeader">
-                        <a href="/home" class="previous round">&larr;</a>
-                        <h3 className="titleFavoriteHeader">
-                            Favorites
-                        </h3>
-                    </div>
-                    <div className="imagesAllCaughtConteiner">
-                        <div className="favoriteCard">
-                            <div className="AllCaughtCard">
-                                <img className="imageAllCaught" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png" alt="pikachu Teste"/>
-                                <h4>Pikachu</h4>
-                                <p>electry</p>
-                                
-                            </div>
-                        </div>
-
-                        <div className="favoriteCard">
-                            <div className="AllCaughtCard">
-                                <img className="imageAllCaught" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png" alt="pikachu Teste"/>
-                                <h4>Pikachu</h4>
-                                <p>electry</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>  
-
                 <div className="allCaught">
                     <div className="allCaughtHeader">
                             <h3 className="titleFavoriteHeader">
@@ -63,7 +36,7 @@ function MyPokemons(){
                         <div className="AllCaughtCard">
                             <img className="imageAllCaught" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png" alt="pikachu Teste"/>
                             <h4>Pikachu</h4>
-                            <p>electry</p>
+                            <h4>electry</h4>
                         </div>
 
                         <div className="AllCaughtCard">
