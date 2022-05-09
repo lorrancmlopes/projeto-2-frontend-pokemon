@@ -119,6 +119,13 @@ to {
     align-items: center;
 }
 
+#persona {
+    position: absolute;
+
+    margin-top: 0;
+    margin-left: 0;
+}
+
 .map{
     height: 27rem;
 }
