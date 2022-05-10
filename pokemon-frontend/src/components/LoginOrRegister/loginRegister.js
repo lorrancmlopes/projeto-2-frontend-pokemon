@@ -1,7 +1,7 @@
 import axios from "axios";
 import { Link, useNavigate , useLocation } from "react-router-dom";
 import  React , { useState } from "react";
-import './index.css' ;
+import './loginRegister.css' ;
 import pikachu from "./pikachu.gif";
 import logo from "../../logo.png";
 
@@ -17,9 +17,43 @@ function LoginOrRegister(){
         console.log(user, password);
 
         if(location.pathname == '/login'){
-            navigate('/home');
+
+            // Realizando um post para verificação da existencia ou nao do usuario
+            axios({
+                method:'post',
+                url:"http://localhost:8000/users/login", 
+                data:{
+                  "name": user,
+                  "password": password
+                },}).then(
+                    (resposta) => {
+                        if(resposta.status == 200){
+                            navigate('/home');
+                        } 
+                    }, () => {
+                        alert("Usuario e/ou senha incorretos!");
+                        navigate('/login');
+            });
+            
         }else{
-            navigate('/login');
+
+            // cadastrando um novo usuario:
+            axios({
+                method:'post',
+                url:"http://localhost:8000/users/register", 
+                data:{
+                  "name": user,
+                  "password": password
+                },}).then(
+                    (resposta) => {
+                        if(resposta.status == 200){
+                            navigate('/login');
+                        } 
+                    }, () => {
+                        alert("Usuário ja cadastrado!");
+                        navigate('/register');
+            });
+
         }
 
     }
@@ -38,7 +72,7 @@ function LoginOrRegister(){
                     
                     <form className="formLogin" onSubmit={(event)=>{handleUpdate(event)}} >
                         <div class="input-parent">
-                            {location.pathname == '/login' ? <label>Username or Email</label> : <label>Create username or email</label>}
+                            {location.pathname == '/login' ? <label>Username</label> : <label>Create username</label>}
                             <input type="text" id="username" onChange={(name) => setUser(name.target.value)}/>
                         </div>
 
