@@ -1,9 +1,9 @@
 import { BrowserRouter as Router , Route, Routes  } from "react-router-dom";
 import './App.css';
 
-import LoginOrRegister from './components/LoginOrRegister/loginRegister'
+import LoginOrRegister from './components/LoginOrRegister/loginRegister.js'
 import Home from './components/Home/home.js'
-import Menu from './components/Menu/index.js'
+import Menu from './components/Menu/menu.js'
 import Game from './components/Game/game.js';
 
 function App() {

@@ -3,27 +3,36 @@ import axios from 'axios';
 import './menu.css' ;
 import logo from "../../logo.png";
 
-import map1 from "../Menu/map1.png";
-import map2 from "../Menu/map2.png";
-import map3 from "../Menu/map3.png";
+import { useNavigate} from "react-router-dom";
+
+import map1 from "../Menu/img/map1.png";
+import map2 from "../Menu/img/map2.png";
+import map3 from "../Menu/img/map3.png";
+import ashPokemon from "../Menu/img/ashPokemon.gif"
 
 function Menu(){
 
+    const navigate = useNavigate();
+
+    function startGame(){
+        navigate('/game')
+    }
+
     return (
-        <div className="screenGame">
+        <div className="screen">
             <img className="logo" src={logo} alt="logo PokeWay"/> 
             <div id='stars'></div>
             <div id='stars2'></div>
             <div id='stars3'></div>
 
-            <div className="backScreenGame">
+            <div className="backScreenMenu">
                 <div className="container">
 
                     <div className="cardJogador">
 
                         <div className="infoPlayer">
                             <div className="avatar">
-                                <img src="https://i.dstatic.com/images/sprites/nuser255.png" alt="avatar" className="img_avatar"/>
+                                <img src={ashPokemon} alt="avatar" className="img_avatar"/>
                             </div>
                             <div className="infos">
                                 <h2 className="user_name">Username or email</h2>
@@ -70,7 +79,7 @@ function Menu(){
                         </div>
 
                         <div className= "botaoPlay">
-                            <button className="play">Play</button>
+                            <button className="play" onClick={startGame}>Play</button>
                         </div>
 
                     </div>

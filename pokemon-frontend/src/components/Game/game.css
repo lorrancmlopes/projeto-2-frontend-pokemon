@@ -100,10 +100,10 @@ to {
     align-items: center;
 }
 
-.logo{
+/* .logo{
     margin-top: 1rem;
     width: 12rem;
-}
+} */
 
 .mapGame{
     height: 100%;
@@ -126,8 +126,9 @@ to {
     left: 250px;
 }
 
-.map{
-    height: 27rem;
+.imgMapGame{
+    height: 95%;
+    width: 95%;
     position: relative;
 }
 
@@ -227,6 +228,23 @@ to {
 
 .catch{
     width: 90%;
+
+    border: none;
+	padding: 0;
+	outline: inherit;
+
+    height: 2.2rem;
+    background-color: #1a3969;
+
+    color: #f4f4f4;
+    font-size: medium;
+
+    border-radius: 0.2rem; 
+    cursor: pointer;
+}
+
+.catch:hover{
+    opacity: 0.9;
 }
 
 .load {

@@ -71,7 +71,7 @@ function LoginOrRegister(){
             <div className="backScreenLogin">
                 <div className="login">
 
-                    {location.pathname == '/login' ? <h2>Login to your account</h2> : <h2>Create account</h2>}
+                    {location.pathname == '/login' ? <h2 className="typeCount">Login to your account</h2> : <h2 className="typeCount" >Create account</h2>}
                     
                     <form className="formLogin" onSubmit={(event)=>{handleUpdate(event)}} >
                         <div class="input-parent">
@@ -85,12 +85,12 @@ function LoginOrRegister(){
                         </div>
 
                         {location.pathname == '/login' ? 
-                        <button type="submit" onClick={()=>{}}>Login</button> : <button type="submit" onClick={()=>{}}>Create</button>
+                        <button type="submit" onClick={()=>{}} className="btn_loginRegister">Login</button> : <button className="btn_loginRegister" type="submit" onClick={()=>{}}>Create</button>
                         }
                     </form>
 
                     {location.pathname == '/login' ? 
-                        <span><Link to = '/register'> Create an account </Link></span> : <span></span>
+                        <span className="containerNewAccount"><Link to = '/register' className="newAccount"> Create an account </Link></span> : <span></span>
                     }
 
                 </div>

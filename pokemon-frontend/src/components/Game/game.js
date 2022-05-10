@@ -112,7 +112,7 @@ function Game(){
 
     return (
         
-    <div className="screen">
+    <div className="screenGame">
         <img className="logo" src={logo} alt="logo PokeWay"/> 
         
         <div id='stars'></div>
@@ -123,7 +123,7 @@ function Game(){
 
             <div className="container">
                 <div className="mapGame"  tabIndex="0"  onKeyDown={(event) => handleKey(event)}>
-                    <img src = {map1} className= "map"></img>
+                    <img src = {map1} className= "imgMapGame"></img>
                     <img src = {persona} id="persona"></img>
                 </div>  
 

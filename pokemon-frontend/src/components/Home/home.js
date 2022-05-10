@@ -54,7 +54,7 @@ function Home(){
             <div id='stars2'></div>
             <div id='stars3'></div>
             
-            <div className="backScreen">
+            <div className="backScreenHome">
                 <div className="pokemonCardConteiner" onChange={(event)=>onChangeValue(event)}>
                     <h3>Choose your Pokémon to begin:</h3>
                     <div className="pokemonCard">
@@ -86,10 +86,10 @@ function Home(){
                         <p className="pokemonName">Pikachu</p>
                         <p>Type: {types[3]}</p>
                         <p>Base Experience: {baseExp[3]}</p>
-                        <input type="radio" id="Squirtle" name="pokemonInicial" value="Squirtle"></input>
+                        <input type="radio" id="Squirtle" name="pokemonInicial" value="Squirtle" checked></input>
                         <label for="Squirtle"></label>
                     </div>
-                    <button class="next" onClick = {changeToMenu}>Next &raquo;</button>
+                    <button className="next" onClick = {changeToMenu}>Next &raquo;</button>
                 </div>
             </div>
         </div>
