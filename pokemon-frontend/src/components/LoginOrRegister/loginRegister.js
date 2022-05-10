@@ -65,7 +65,7 @@ function LoginOrRegister(){
             <div id='stars2'></div>
             <div id='stars3'></div>
             
-            <div className="backScreen">
+            <div className="backScreenLogin">
                 <div className="login">
 
                     {location.pathname == '/login' ? <h2>Login to your account</h2> : <h2>Create account</h2>}
