@@ -122,12 +122,13 @@ to {
 #persona {
     position: absolute;
 
-    margin-top: 0;
-    margin-left: 0;
+    top: 200px;
+    left: 250px;
 }
 
 .map{
     height: 27rem;
+    position: relative;
 }
 
 .radarContainer{

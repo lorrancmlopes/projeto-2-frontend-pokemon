@@ -19,10 +19,8 @@ function Game(){
 
     let easy_pokemons = ['rattata','zubat','pidgey'];
 
-    let [left , setLeft] = useState(0);
-    let [right , setRight] = useState(0);
-    let [bottom , setBottom] = useState(0);
-    let [top , setTop] = useState(0);
+    let [left , setLeft] = useState(250);
+    let [top , setTop] = useState(200);
 
     let [pokeName, setPokeName] = useState(['']);
     let [pokeImg, setPokeImg] = useState(['']);
@@ -56,24 +54,44 @@ function Game(){
         event.preventDefault();  
         if ((event.key == 'ArrowDown' || event.key == 's')) {
             console.log("Baixo")
-            setTop(top+10)
-            document.getElementById("persona").style.marginTop = top + 'px'
+
+            let d_bottom = top+10
+
+            if(d_bottom<410){
+                setTop(d_bottom)
+                document.getElementById("persona").style.top = top + 'px'
+            }
+            
           }
 
         if ((event.key == 'ArrowUp' || event.key == 'w')) {
             console.log("Cima")
-            setBottom(bottom+10)
-            document.getElementById("persona").style.marginBottom = bottom + 'px'
+            let d_top = top-10
+            
+            if(d_top>0){
+                setTop(d_top);
+                document.getElementById("persona").style.top = top + 'px';
+            }
         }
         if ((event.key == 'ArrowLeft' || event.key == 'a')) {
             console.log("Esquerda")
-            setRight(right+10)
-            document.getElementById("persona").style.marginRight = right + 'px'
+            let d_left = left-10
+
+            if(d_left>40) {
+                setLeft(d_left)
+                document.getElementById("persona").style.left = left + 'px'
+            }
+            
         }
         if ((event.key == 'ArrowRight' || event.key == 'd')) {
             console.log("Direita")
-            setLeft(left+10)
-            document.getElementById("persona").style.marginLeft = left + 'px'
+
+            let d_right = left+10
+
+            if(d_right<450){
+                setLeft(d_right)
+                document.getElementById("persona").style.left = left + 'px'
+            } 
         }
     };
 
@@ -90,7 +108,7 @@ function Game(){
             findPokemon(pokemon_name)
         }
 
-    }, [top, bottom, left,right]);
+    }, [top, left]);
 
     return (
         
