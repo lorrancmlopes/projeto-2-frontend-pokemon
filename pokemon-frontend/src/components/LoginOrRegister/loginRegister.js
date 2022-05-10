@@ -1,10 +1,14 @@
-import axios from "axios";
 import { Link, useNavigate , useLocation } from "react-router-dom";
 import  React , { useState } from "react";
-import './loginRegister.css' ;
+import axios from 'axios';
+import './loginRegister.css';
+
 import pikachu from "./pikachu.gif";
 import logo from "../../logo.png";
 
+
+// Senha sempre válida: 
+// user: teste , senha: 12345
 
 function LoginOrRegister(){
     const [user, setUser] = useState('')
@@ -14,8 +18,7 @@ function LoginOrRegister(){
     
     function handleUpdate(event){
         event.preventDefault();
-        console.log(user, password);
-
+        
         if(location.pathname == '/login'){
 
             // Realizando um post para verificação da existencia ou nao do usuario
