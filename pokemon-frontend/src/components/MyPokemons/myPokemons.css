@@ -212,21 +212,6 @@ a {
     position: absolute;
 }
 
-.AllCaughtCard {
-    height: 50%;
-    width: 20%;
-    background-color: #1b2735;
-    opacity: 1;
-    border-radius: 0.8rem;
-    display: flex;
-    justify-content:space-around;
-    align-items: center;
-    flex-direction: column;
-    margin: 0.5rem;
-    color: white;
-}
-
-
 .favorites{
     height: 100%;
     width: 48%;

@@ -4,21 +4,71 @@ import pikachu from "./pikachu.gif";
 import logo from "../../logo.png";
 import './myPokemons.css' ;
 
-
-
-
+import PokeCards from "../PokeCards/pokeCards";
 
 function MyPokemons(){
     const navigate = useNavigate();
     const location = useLocation();
     
+    const mypokemons = [
+        {
+          name: "Pikachu",
+          type: "electry",
+        },
+        {
+            name: "Pikachu",
+            type: "electry",
+        },
+        {
+            name: "Pikachu",
+            type: "electry",
+        },
+        {
+            name: "Pikachu",
+            type: "electry",
+        },
+        {
+            name: "Pikachu",
+            type: "electry",
+        },
+        {
+            name: "Pikachu",
+            type: "electry",
+        },
+        {
+            name: "Pikachu",
+            type: "electry",
+        },
+        {
+            name: "Pikachu",
+            type: "electry",
+        },
+        {
+            name: "Pikachu",
+            type: "electry",
+        },
+        {
+            name: "Pikachu",
+            type: "electry",
+        },
+        {
+            name: "Pikachu",
+            type: "electry",
+        },
+        {
+            name: "Pikachu",
+            type: "electry",
+        },
+        {
+            name: "Pikachu",
+            type: "electry",
+        },
+    ];
 
     return (
 <div className="screen">
         <img className="logo" src={logo} alt="logo PokeWay"/> 
             
-
-        
         <div id='stars'></div>
         <div id='stars2'></div>
         <div id='stars3'></div>
@@ -34,67 +84,11 @@ function MyPokemons(){
                             </h3>
                     </div>
                     <div className="imagesAllCaughtConteiner">
-                        <div className="AllCaughtCard">
-                            <img className="imageAllCaught" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png" alt="pikachu Teste"/>
-                            <h4>Pikachu</h4>
-                            <h4>electry</h4>
-                        </div>
 
-                        <div className="AllCaughtCard">
-                            <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png" alt="pikachu Teste"/>
-                            <h4>Pikachu</h4>
-                            <h4>electry</h4>
-                        </div>
-                        <div className="AllCaughtCard">
-                            <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png" alt="pikachu Teste"/>
-                            <h4>Pikachu</h4>
-                            <h4>electry</h4>
-                        </div>
-                        <div className="AllCaughtCard">
-                            <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png" alt="pikachu Teste"/>
-                            <h4>Pikachu</h4>
-                            <h4>electry</h4>
-                        </div>
-                        <div className="AllCaughtCard">
-                            <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png" alt="pikachu Teste"/>
-                            <h4>Pikachu</h4>
-                            <h4>electry</h4>
-                        </div>
-                        <div className="AllCaughtCard">
-                            <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png" alt="pikachu Teste"/>
-                            <h4>Pikachu</h4>
-                            <h4>electry</h4>
-                        </div>
-                        <div className="AllCaughtCard">
-                            <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png" alt="pikachu Teste"/>
-                            <h4>Pikachu</h4>
-                            <h4>electry</h4>
-                        </div>
-                        <div className="AllCaughtCard">
-                            <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png" alt="pikachu Teste"/>
-                            <h4>Pikachu</h4>
-                            <h4>electry</h4>
-                        </div>
-                        <div className="AllCaughtCard">
-                            <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png" alt="pikachu Teste"/>
-                            <h4>Pikachu</h4>
-                            <h4>electry</h4>
-                        </div>
-                        <div className="AllCaughtCard">
-                            <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png" alt="pikachu Teste"/>
-                            <h4>Pikachu</h4>
-                            <h4>electry</h4>
-                        </div>
-                        <div className="AllCaughtCard">
-                            <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png" alt="pikachu Teste"/>
-                            <h4>Pikachu</h4>
-                            <h4>electry</h4>
-                        </div>
-                        <div className="AllCaughtCard">
-                            <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png" alt="pikachu Teste"/>
-                            <h4>Pikachu</h4>
-                            <h4>electry</h4>
-                        </div>
+                        {mypokemons.map((pokemons) => (
+                            <PokeCards name_pokemon={pokemons.name}>{pokemons.type}</PokeCards>
+                        ))}
+
                     </div>
                 </div>
             </div>
