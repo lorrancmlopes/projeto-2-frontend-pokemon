@@ -29,16 +29,11 @@
     width: 7rem;
 }
 
-/* .logo{
-    margin-top: 2rem;
-    width: 12rem;
-} */
-
-
 .pokemonCard {
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     transition: 0.3s;
     width: 20%;
+    height: 60%;
     border-radius: 0.8rem;
     margin: 1rem;
     display: inline-block;
