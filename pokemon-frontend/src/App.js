@@ -5,7 +5,7 @@ import LoginOrRegister from './components/LoginOrRegister/loginRegister.js'
 import Home from './components/Home/home.js'
 import Menu from './components/Menu/menu.js'
 import Game from './components/Game/game.js';
-import MyPokemons from "./components/MyPokemons/index.js";
+import MyPokemons from "./components/MyPokemons/myPokemons";
 
 function App() {
   return (

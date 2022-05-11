@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import pikachu from "./pikachu.gif";
 import { useNavigate} from "react-router-dom";
-import logo from "../../logo.png";
+
+import Background from "../AnimatedBackground/backgroung.js";
 import './home.css' ;
 const axios = require("axios");
 
@@ -43,12 +43,9 @@ function Home(){
     }
 
     return (
-        <div className="screen">
-            <img className="logo" src={logo} alt="logo PokeWay"/> 
-            <div id='stars'></div>
-            <div id='stars2'></div>
-            <div id='stars3'></div>
-            
+        <>  
+            <Background></Background>
+
             <div className="backScreenHome">
                 <div className="pokemonCardConteiner" onChange={(event)=>onChangeValue(event)}>
                     <h3>Choose your Pokémon to begin:</h3>
@@ -83,7 +80,7 @@ function Home(){
                     <button className="next" onClick = {changeToMenu}>Next &raquo;</button>
                 </div>
             </div>
-        </div>
+        </>
     );
 }
 

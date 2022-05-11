@@ -1,13 +1,26 @@
 .AllCaughtCard {
     height: 50%;
     width: 20%;
-    background-color: #1b2735;
-    opacity: 1;
+    
     border-radius: 0.8rem;
     display: flex;
-    justify-content:space-around;
+    justify-content:center;
     align-items: center;
     flex-direction: column;
     margin: 0.5rem;
-    color: white;
+
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
 }
+
+.infoPokeCardName, .infoPokeCardType{
+    margin-top: 0.2rem;
+}
+
+.infoPokeCardName{
+    font-size: medium;
+}
+
+.infoPokeCardType{
+    font-size: small;
+}
+

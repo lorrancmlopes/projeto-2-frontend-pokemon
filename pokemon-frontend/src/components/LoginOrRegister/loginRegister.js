@@ -4,7 +4,7 @@ import axios from 'axios';
 import './loginRegister.css';
 
 import pikachu from "./pikachu.gif";
-import logo from "../../logo.png";
+import Background from "../AnimatedBackground/backgroung.js";
 
 
 // Senha sempre válida: 
@@ -62,12 +62,9 @@ function LoginOrRegister(){
     }
 
     return (
-        <div className="screen">
-            <img className="logo" src={logo} alt="logo PokeWay"/> 
-            <div id='stars'></div>
-            <div id='stars2'></div>
-            <div id='stars3'></div>
-            
+        <>
+            <Background></Background>
+
             <div className="backScreenLogin">
                 <div className="login">
 
@@ -99,7 +96,9 @@ function LoginOrRegister(){
             <div id="pikachu">
                 <img src={pikachu} alt="running pikachu" className="img_pikachu" />
             </div>
-        </div>
+        </>
+               
+            
     );
 }
 

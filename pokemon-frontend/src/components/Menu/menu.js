@@ -1,9 +1,9 @@
 import  React from "react";
 import axios from 'axios';
 import './menu.css' ;
-import logo from "../../logo.png";
 
 import { useNavigate} from "react-router-dom";
+import Background from "../AnimatedBackground/backgroung.js";
 
 import map1 from "../Menu/img/map1.png";
 import map2 from "../Menu/img/map2.png";
@@ -18,12 +18,17 @@ function Menu(){
         navigate('/game')
     }
 
+    function goToPokeList(){
+        navigate('/pokemons')
+    }
+
+    function logOut(){
+        navigate('/')
+    }
+
     return (
-        <div className="screen">
-            <img className="logo" src={logo} alt="logo PokeWay"/> 
-            <div id='stars'></div>
-            <div id='stars2'></div>
-            <div id='stars3'></div>
+        <>  
+            <Background></Background>
 
             <div className="backScreenMenu">
                 <div className="container">
@@ -40,13 +45,13 @@ function Menu(){
                         </div>
                         
                         <div className="pokemons">
-                            <button className="botaoPokemons">
+                            <button className="botaoPokemons" onClick={goToPokeList}>
                                 See your Pokemons
                             </button>
                         </div>
 
                         <div className="botaoLogout">
-                            <button className="botaoOut" >Log out</button>
+                            <button className="botaoOut" onClick={logOut}>Log out</button>
                         </div>
 
                     </div>
@@ -56,22 +61,22 @@ function Menu(){
                         <div className="containerMaps">
                             <div className="headerGame">
                                 <div className="contentHeaderGame">
-                                    <h2 className="opMap">Choose a map for play</h2>
+                                    <h3 className="opMap">Choose a map for play</h3>
                                 </div>  
                             </div>
                             
                             <div className="maps">
-                                <div className="map">
+                                <div className="mapImg">
                                     <img src={map1} alt="map1" className="map1"></img>
                                     <input type="radio" id="dewey" name="map1" value="dewey" checked></input>
                                 </div>
 
-                                <div className="map">
+                                <div className="mapImg">
                                     <img  src={map2} alt="map2" className="map2"></img>
                                     <input type="radio" id="dewey" name="map1" value="dewey"></input>
                                 </div>
 
-                                <div className="map">
+                                <div className="mapImg">
                                     <img  src={map3} alt="map3" className="map3"></img>
                                     <input type="radio" id="dewey" name="map1" value="dewey"></input>
                                 </div>
@@ -81,14 +86,10 @@ function Menu(){
                         <div className= "botaoPlay">
                             <button className="play" onClick={startGame}>Play</button>
                         </div>
-
                     </div>
-
-                </div>
-                
+                </div>     
             </div>
-
-        </div>
+        </>            
     );
     
 }

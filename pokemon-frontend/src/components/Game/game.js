@@ -1,11 +1,13 @@
 import  React , { useState , useEffect } from "react";
 import './game.css' ;
-import logo from "../../logo.png";
+
 import map1 from "./sprites/map1.png";
 import map2 from "./sprites/map2.png";
 import map3 from "./sprites/map3.png";
 import persona from "./sprites/persona.png";
 import radar from "./sprites/radar.gif";
+
+import Background from "../AnimatedBackground/backgroung.js";
 
 const axios = require("axios");
 
@@ -111,57 +113,51 @@ function Game(){
     }, [top, left]);
 
     return (
+        <>
+             <Background></Background>
         
-    <div className="screenGame">
-        <img className="logo" src={logo} alt="logo PokeWay"/> 
-        
-        <div id='stars'></div>
-        <div id='stars2'></div>
-        <div id='stars3'></div>
-        
-        <div className="backScreenGame">
+            <div className="backScreenGame">
 
-            <div className="container">
-                <div className="mapGame"  tabIndex="0"  onKeyDown={(event) => handleKey(event)}>
-                    <img src = {map1} className= "imgMapGame"></img>
-                    <img src = {persona} id="persona"></img>
-                </div>  
+                <div className="container">
+                    <div className="mapGame"  tabIndex="0"  onKeyDown={(event) => handleKey(event)}>
+                        <img src = {map1} className= "imgMapGame"></img>
+                        <img src = {persona} id="persona"></img>
+                    </div>  
 
-                <div className="radarContainer">
-                    <div className="radar">
-                        <div className="pokemon">
-                            {pokeImg != '' && baseExperience != '' &&  pokeType != '' ?
-                            
-                            <div className="radar_content">  
-                                <div className="container_img">
-                                    <img src = {pokeImg} className="pokemon_img"></img>
+                    <div className="radarContainer">
+                        <div className="radar">
+                            <div className="pokemon">
+                                {pokeImg != '' && baseExperience != '' &&  pokeType != '' ?
+                                
+                                <div className="radar_content">  
+                                    <div className="container_img">
+                                        <img src = {pokeImg} className="pokemon_img"></img>
+                                    </div>
+                                
+                                    <div className="pokemonInfo">
+                                        <h3 className="textInfoName">{pokeName}</h3>
+                                        <h3 className="textInfo">Type: {pokeType}</h3>
+                                        <h3 className="textInfo">Experience: {baseExperience}</h3>
+                                    </div>
                                 </div>
-                            
-                                <div className="pokemonInfo">
-                                    <h3 className="textInfoName">{pokeName}</h3>
-                                    <h3 className="textInfo">Type: {pokeType}</h3>
-                                    <h3 className="textInfo">Experience: {baseExperience}</h3>
-                                </div>
+
+                                : <img src = {radar} className='load'></img>}
                             </div>
-
-                             : <img src = {radar} className='load'></img>}
                         </div>
-                    </div>
 
-                    <div className="instructionGame">
-                        <span className="instruction"> Utilize as setas do teclado para mover seu personagem e fique atento ao radar!</span>
-                    </div>
+                        <div className="instructionGame">
+                            <span className="instruction"> Utilize as setas do teclado para mover seu personagem e fique atento ao radar!</span>
+                        </div>
 
-                    <div className="catchPokemon">
-                        <button className="catch"> Catch Pokemon! </button>
-                    </div>
+                        <div className="catchPokemon">
+                            <button className="catch"> Catch Pokemon! </button>
+                        </div>
 
+                    </div>
                 </div>
             </div>
-            
-        </div>
-
-    </div>);
-}
+        </>
+       
+);}
 
 export default Game;
