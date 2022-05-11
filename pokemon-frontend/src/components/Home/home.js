@@ -24,6 +24,8 @@ function Home(){
             srcsAuxi.push(response.data.sprites.front_default);
             typesAuxi.push(response.data.types[0].type.name);
             console.log(typesAuxi);
+            console.log("moves\n");
+            console.log(response.data.moves[2].move.name);
         }
         setSrcs(srcsAuxi);
         setTypes(typesAuxi);
