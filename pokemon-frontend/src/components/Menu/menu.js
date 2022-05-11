@@ -29,7 +29,7 @@ function Menu(){
             map = 3;
         }
 
-        navigate('/game', {state:{mapSelected:map}});
+        navigate('/game', {state:{mapSelected:map, username:username}});
     }
 
     function goToPokeList(){

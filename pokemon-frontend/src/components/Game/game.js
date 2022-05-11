@@ -34,8 +34,8 @@ function Game(){
     const navigate = useNavigate();
     const location = useLocation();
     const mapSelected = location.state.mapSelected
-
-    console.log(mapSelected)
+    const username = location.state.username
+    
 
     async function findPokemon(pokemon){
 
@@ -120,7 +120,7 @@ function Game(){
     }, [top, left]);
 
     function voltarMenu(){
-        navigate('/menu');
+        navigate('/menu',  {state:{username:username}});
     }
 
     return (
