@@ -2,7 +2,7 @@ import  React from "react";
 import axios from 'axios';
 import './menu.css' ;
 
-import { useNavigate} from "react-router-dom";
+import { useLocation, useNavigate} from "react-router-dom";
 import Background from "../AnimatedBackground/backgroung.js";
 
 import map1 from "../Menu/img/map1.png";
@@ -13,9 +13,23 @@ import ashPokemon from "../Menu/img/ashPokemon.gif"
 function Menu(){
 
     const navigate = useNavigate();
+    const location = useLocation();
+    const username = location.state.username
 
     function startGame(){
-        navigate('/game')
+
+        let map;
+
+        // Buscando qual checkbox foi selecionado
+        if(document.getElementById('mapRadio1').checked) {
+            map = 1;
+        } else if (document.getElementById('mapRadio2').checked){
+            map = 2;
+        }else{
+            map = 3;
+        }
+
+        navigate('/game', {state:{mapSelected:map}});
     }
 
     function goToPokeList(){
@@ -40,7 +54,8 @@ function Menu(){
                                 <img src={ashPokemon} alt="avatar" className="img_avatar"/>
                             </div>
                             <div className="infos">
-                                <h2 className="user_name">Username or email</h2>
+                                <h2 className="text_user_name">USERNAME</h2>
+                                <h2 className="user_name">{username}</h2>  
                             </div>
                         </div>
                         
@@ -68,17 +83,17 @@ function Menu(){
                             <div className="maps">
                                 <div className="mapImg">
                                     <img src={map1} alt="map1" className="map1"></img>
-                                    <input type="radio" id="dewey" name="map1" value="dewey" checked></input>
+                                    <input type="radio" id="mapRadio1" name="map1" value="dewey" checked></input>
                                 </div>
 
                                 <div className="mapImg">
                                     <img  src={map2} alt="map2" className="map2"></img>
-                                    <input type="radio" id="dewey" name="map1" value="dewey"></input>
+                                    <input type="radio" id="mapRadio2" name="map1" value="dewey"></input>
                                 </div>
 
                                 <div className="mapImg">
                                     <img  src={map3} alt="map3" className="map3"></img>
-                                    <input type="radio" id="dewey" name="map1" value="dewey"></input>
+                                    <input type="radio" id="mapRadio3" name="map1" value="dewey"></input>
                                 </div>
                             </div>
                         </div>

@@ -1,5 +1,7 @@
-import  React , { useState , useEffect } from "react";
+import  React , { useState , useEffect} from "react";
 import './game.css' ;
+
+import { useNavigate , useLocation} from "react-router-dom";
 
 import map1 from "./sprites/map1.png";
 import map2 from "./sprites/map2.png";
@@ -29,6 +31,11 @@ function Game(){
     let [baseExperience, setBaseExperience] = useState(['']);
     let [pokeType, setPokeType] = useState(['']);
 
+    const navigate = useNavigate();
+    const location = useLocation();
+    const mapSelected = location.state.mapSelected
+
+    console.log(mapSelected)
 
     async function findPokemon(pokemon){
 
@@ -112,6 +119,10 @@ function Game(){
 
     }, [top, left]);
 
+    function voltarMenu(){
+        navigate('/menu');
+    }
+
     return (
         <>
              <Background></Background>
@@ -120,7 +131,17 @@ function Game(){
 
                 <div className="container">
                     <div className="mapGame"  tabIndex="0"  onKeyDown={(event) => handleKey(event)}>
-                        <img src = {map1} className= "imgMapGame"></img>
+                        
+                        {mapSelected == 1 ? 
+                        
+                            <img src = {map1} className= "imgMapGame"></img> :
+                            <>
+                                {mapSelected == 2 ? <img src = {map2} className= "imgMapGame"></img> : 
+                                <img src = {map3} className= "imgMapGame"></img>}
+                            </>
+                            
+                        }
+
                         <img src = {persona} id="persona"></img>
                     </div>  
 
@@ -151,6 +172,10 @@ function Game(){
 
                         <div className="catchPokemon">
                             <button className="catch"> Catch Pokemon! </button>
+                        </div>
+
+                        <div className="voltarTelaMenu">
+                            <button className="botaoVoltar" onClick={voltarMenu}>Voltar</button>
                         </div>
 
                     </div>

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate} from "react-router-dom";
+import { useNavigate , useLocation} from "react-router-dom";
 
 import Background from "../AnimatedBackground/backgroung.js";
 import './home.css' ;
@@ -13,6 +13,7 @@ function Home(){
     const pokemonsInicias = ["bulbasaur", "charmander", "squirtle", "pikachu"];
     
     const navigate = useNavigate();
+    const location = useLocation();
     
     async function pegaDados(){
         let srcsAuxi = [];
@@ -39,7 +40,7 @@ function Home(){
     }
 
     function changeToMenu(){
-        navigate('/menu')
+        navigate('/menu', {state:{username:location.state.username}})
     }
 
     return (

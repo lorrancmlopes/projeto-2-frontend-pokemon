@@ -31,7 +31,7 @@ function LoginOrRegister(){
                 },}).then(
                     (resposta) => {
                         if(resposta.status == 200){
-                            navigate('/home');
+                            navigate('/home', {state:{username:user}});
                         } 
                     }, () => {
                         alert("Usuario e/ou senha incorretos!");
