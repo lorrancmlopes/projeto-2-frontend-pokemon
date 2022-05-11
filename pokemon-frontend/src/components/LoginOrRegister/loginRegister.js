@@ -31,9 +31,30 @@ function LoginOrRegister(){
                 },}).then(
                     (resposta) => {
                         if(resposta.status == 200){
-                            navigate('/home', {state:{username:user}});
+                            console.log("entrou aqui");
+
+                            // Realizando um get para verificação da existencia ou nao de pokemon inicial 
+                            axios({
+                                method:'get',
+                                url:"http://localhost:8000/users/"+user + "/", 
+                            }).then(
+                                    (resposta) => {
+                                         if(resposta.data.selectedFirtsPokemon == false){
+                                             console.log("Não tem pokemon inicial");
+                                             navigate('/home', {state:{username:user, password:password}});
+                                         } 
+                                        
+                                        else{
+                                            console.log(resposta.data);
+                                            navigate('/menu', {state:{username:user}});
+                                    }
+                            });
+                        }
+
+
+                            // navigate('/home', {state:{username:user}});
                         } 
-                    }, () => {
+                    , () => {
                         alert("Usuario e/ou senha incorretos!");
                         navigate('/');
             });
