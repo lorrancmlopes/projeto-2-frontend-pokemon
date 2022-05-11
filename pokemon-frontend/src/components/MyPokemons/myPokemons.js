@@ -24,14 +24,12 @@ function MyPokemons(){
         setPokeListNames(names);
         
     }
-    getPokemons();
+    
 
-    // useEffect(() => {
-    //     axios
-    //       .get("http://localhost:8000/api/notes/")
-    //       .then((res) => setPokeListNames(res.data.map((pokemon)=>(({ "name": pokemon.name, "srcImg": pokemon.srcImg, "type": pokemon.type})))));
-    //   }, []);
-    // console.log(pokeListNames)
+    useEffect(()=>{
+        console.log("vamor pegar os meus pokemons");
+        getPokemons();
+    },[]);
 
     return (
 
