@@ -14,11 +14,17 @@ function MyPokemons(){
     const navigate = useNavigate();
     const location = useLocation();
     let [pokeListNames, setPokeListNames] = useState(['']);
+    const username = location.state.username
+
+function voltaMenu(){
+    navigate('/menu', {state: {username:username}} );
+}
+
     
 
 
     async function getPokemons(){
-        let response = await axios.get('http://localhost:8000/pokemons/');
+        let response = await axios.get('http://localhost:8000/pokemons/'+username+'/');
         let names = [];
         response.data.map((pokemon)=>(names.push({ "name": pokemon.name, "srcImg": pokemon.srcImg, "type": pokemon.type})));
         setPokeListNames(names);
@@ -41,7 +47,7 @@ function MyPokemons(){
                 <div className="container">
                     <div className="allCaught">
                         <div className="allCaughtHeader">
-                                {/* <a href="/home" class="previous round">&larr;</a> */}
+                                <a onClick={voltaMenu} className="backBotao" >&larr;</a>
                                 
                                 <h3>All Caught</h3>
                         </div>

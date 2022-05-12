@@ -151,7 +151,7 @@ function Game(){
 
         let number = randomInt(0,20);
 
-        if(number < 5){
+        if(number < 2){
             let pokemon_name = all_pokemons[randomInt(0, all_pokemons.length)];
             findPokemon(pokemon_name)
         }
@@ -159,7 +159,7 @@ function Game(){
     }, [top, left]);
 
     function voltarMenu(){
-        navigate('/menu');
+        navigate('/menu', {state: {username:user}} );
     }
 
     return (

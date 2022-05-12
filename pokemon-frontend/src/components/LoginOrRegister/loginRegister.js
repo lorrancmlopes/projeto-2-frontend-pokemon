@@ -67,7 +67,8 @@ function LoginOrRegister(){
                 url:"http://localhost:8000/users/register", 
                 data:{
                   "name": user,
-                  "password": password
+                  "password": password,
+                  "selectedFirtsPokemon": false
                 },}).then(
                     (resposta) => {
                         if(resposta.status == 200){
