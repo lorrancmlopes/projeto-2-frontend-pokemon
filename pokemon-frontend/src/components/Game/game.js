@@ -21,7 +21,7 @@ function randomInt(min, max) {
 
 function Game(){
 
-    let easy_pokemons = ['rattata','zubat','pidgey'];
+    let all_pokemons = ['abra','absol','aerodactyl','aggron','aipom','alakazam','altaria','amaldo','ampharos','anorith','arbok','arcanine','ariados','aron','articuno','azumarill','azurill','bagon','baltoy','banette','barboach','bayleef','beautifly','beedrill','beldum','bellossom','bellsprout','blastoise','blaziken','blissey','breloom','bulbasaur','butterfree','cacnea','cacturne','camerupt','carvanha','cascoon','castform','caterpie','celebi','chansey','charizard','charmander','charmeleon','chikorita\xa0','chimecho','chinchou','clamperl','claydol','clefable','clefairy','cleffa','cloyster','combusken','corphish','corsola','cradily','crawdaunt','crobat','croconaw','cubone','cyndaquil','delcatty','delibird','deoxys','dewgong','diglett','ditto','dodrio','doduo','donaphan','dragonair','dragonite','dratini','drowzee','dugtrio','dunsparce\xa0','dusclops','duskull','dustox','eevee','ekans','electabuzz','electrike','electrode','elekid','entei','espeon','exeggcute','exeggutor','exploud','farfetch','fearow','feebas','feraligatr','flaaffy','flareon','flygon','foretress','furret','gardevoir','gastly','gengar','geodude','girafarig','glalie','gligar','gloom','golbat','goldeen','golduck','golem','gorebyss','granbull','graveler','grimer','groundon','grovyle','growlithe','grumpig','gulpin','gyarados','hariyama','haunter','heracross','hitmonchan','hitmonlee','hitmontop','ho-oh','hoothoot\xa0','hoppip','horsea','houndoom','houndour','huntail','hypno','igglybuff\xa0','illumise','ivysaur','jigglypuff','jirachi','jolteon','jumpluff','jynx','kabuto','kabutops','kadabra','kakuna','kangaskhan','kecleon','kingdra','kingler','kirlia','koffing','krabby','kyogre','lairon','lanturn','lapras','larvitar','latias','latios','ledian','ledyba','lickitung','lileep','linoone','lombre','lotad','loudred','ludicolo','lugia\xa0','lunatone','luvdisc','machamp','machoke','machop','magby','magcargo','magikarp','magmar','magnemite','magneton','makuhita','manectric','mankey','mantine','mareep','marill\xa0','marowak','marshtomp','masquerain','mawile','medicham','meditite','meganium','meowth','metagross','metang','metapod','mew','mewtwo','mightyena','milotic','miltank','minun','misdreavus','moltres','mudkip','muk','murkrow','natu','nidoking','nidoqueen','nidoran','nidorina','nidorino','nincada','ninetales','ninjask','noctowl','nosepass','numel','nuzleaf','octillery','oddish','omanyte','omastar','onix','paras','parasect','pelipper','persian','phanpy','pichu','pidgeot','pidgeotto','pidgey','pikachu','piloswine','pineco','pinsir','plusle','politoed','poliwag','poliwhirl','poliwrath','ponyta','poochyena','porygon','porygon2','primeape','psyduck','pupitar','quagsire','quilava','quilfish','raichu','raikou','ralts','rapidash','raticate','rattata','rayquaza','regice','regirock','registeel','relicanth','remoraid','rhydon','rhyhorn','roselia','salamence','sandshrew','sandslash','sapleye','sceptile','schuckle','scizor','scyther','seadra','seaking','sealeo','seedot','seel','sellow','sentret','seviper','sharpedo','shedinja','shelgon','shellder','shiftry','shroomish','shuppet','silcoon','skarmony','skiploom','skitty','slaking','slakoth','slowbro','slowking','slowpoke','slugma','smeargle','smoochum','sneazle','snorlax','snorunt','snubbull','solrock','spearow','spheal','spinarak','spinda','spoink','squirtle','stantler','starmie','staryu','steelix','sudowoodo','suicune','sunflora','sunkern','surskit','swablu','swalot','swampert','swinub','taillow','tangela','tauros','teddiursa','tentacool','tentacruel','togepi','togetic','torchic','torkoal','totodile','trapinch','treecko','tropius','typhlosion','tyranitar','tyrogue','umbreon','unown','ursaring','vaporeon','venomoth','venonat','venusaur','vibrava','victreebel','vigoroth','vileplume','volbeat','voltorb','vulpix','wailmer','wailord','walrein','wartortle','weedle','weepinbell','weezing','whiscash','whismur','wigglytuff','wingull','woobuffet','wooper','wurmple','wynaut','xatu','yanma','zangoose','zapdos','zigzagoon','zubat'];
 
     let [left , setLeft] = useState(250);
     let [top , setTop] = useState(200);
@@ -57,6 +57,44 @@ function Game(){
                 }
                 
             }, (error) => console.log(error));
+    }
+
+    async function catchPokemon(){
+        let id, type, userId, name, move1, move2, move3, srcImg, favorite
+        let response = await axios.get('https://pokeapi.co/api/v2/pokemon/'+pokeName + '/');
+        name = pokeName;
+        userId = user;
+        id = name + userId;
+        type = response.data.types[0].type.name;
+        srcImg = response.data.sprites.front_default;
+        move1 = response.data.moves[0].move.name;
+        move2 = response.data.moves[1].move.name;
+        move3 = response.data.moves[2].move.name;
+        favorite = false;
+
+        let response2 = await 
+
+        axios.post('http://localhost:8000/game/', {
+            "id": id,
+            "idUser": userId,
+            "name": name,
+            "type": type,
+            "move1": move1,
+            "move2": move2,
+            "move3": move3,
+            "srcImg": srcImg,
+            "favorite": favorite,
+        })
+        .then((response2) => {
+        console.log(response2.data);
+        }, (error) => {
+        console.log(error);
+        });
+        console.log("Postou!")
+       setPokeImg('');
+       setPokeName('');
+       setPokeType('');
+        alert("Capturado!");    
     }
 
     const handleKey = (event) => {
@@ -112,8 +150,8 @@ function Game(){
 
         let number = randomInt(0,20);
 
-        if(number < 5){
-            let pokemon_name = easy_pokemons[randomInt(0, easy_pokemons.length)];
+        if(number < 2){
+            let pokemon_name = all_pokemons[randomInt(0, all_pokemons.length)];
             findPokemon(pokemon_name)
         }
 
@@ -171,7 +209,7 @@ function Game(){
                         </div>
 
                         <div className="catchPokemon">
-                            <button className="catch"> Catch Pokemon! </button>
+                            <button className="catch" onClick={()=>catchPokemon()}> Catch Pokemon! </button>
                         </div>
 
                         <div className="voltarTelaMenu">

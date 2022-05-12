@@ -33,7 +33,7 @@ function Menu(){
     }
 
     function goToPokeList(){
-        navigate('/pokemons')
+        navigate('/pokemons', {state:{username:username}})
     }
 
     function logOut(){
@@ -54,7 +54,6 @@ function Menu(){
                                 <img src={ashPokemon} alt="avatar" className="img_avatar"/>
                             </div>
                             <div className="infos">
-                                <h2 className="text_user_name">USERNAME</h2>
                                 <h2 className="user_name">{username}</h2>  
                             </div>
                         </div>
