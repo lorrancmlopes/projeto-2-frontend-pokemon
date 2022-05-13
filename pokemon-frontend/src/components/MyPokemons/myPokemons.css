@@ -198,24 +198,7 @@
     position: absolute;
 }
 
-.close {
-    font-size: 45px;
-    font-weight: 600;
-    /* height: 10rem; */
-    position: fixed;
-    z-index: 2;
-    top: 5.5rem;
-    right: 35.2rem;
-    background-color: #828292;
-    height: 2.4rem;
-    width: 2.4rem;
-    align-items: center;
-    justify-content: center;
-    margin-top: 1.2rem;
-    border-radius: 100%;
-    color: #a30909;
-    font-size: x-large;
-}
+
 
 
 

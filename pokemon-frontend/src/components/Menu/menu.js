@@ -54,7 +54,7 @@ function Menu(){
                                 <img src={ashPokemon} alt="avatar" className="img_avatar"/>
                             </div>
                             <div className="infos">
-                                <h2 className="user_name">{username}</h2>  
+                                <h2 className="user_name">{String(username)[0].toUpperCase() + String(username).substr(1)}</h2>  
                             </div>
                         </div>
                         

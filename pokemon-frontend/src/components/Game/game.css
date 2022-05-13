@@ -196,3 +196,24 @@
 .load {
     width: 70%;
 }
+
+
+.close {
+    font-size: 45px;
+    font-weight: 600;
+    /* height: 10rem; */
+    position: fixed;
+    z-index: 2;
+    top: 5.5rem;
+    right: 35.2rem;
+    background-color: #1a3969; /*rgb(255, 205, 0)*/
+    height: 1.7rem;
+    width: 1.7rem;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1.2rem;
+    border-radius: 100%;
+    color: rgb(255, 205, 0);
+    border: none;
+    font-size: x-large;
+}

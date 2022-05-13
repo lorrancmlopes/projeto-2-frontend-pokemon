@@ -26,7 +26,6 @@ function Game(){
 
     const navigate = useNavigate();
     const location = useLocation();
-    //let mapSelected = location.state.mapSelected
     const user = location.state.username
 
     let [left , setLeft] = useState(250);
@@ -37,9 +36,6 @@ function Game(){
     let [baseExperience, setBaseExperience] = useState(['']);
     let [pokeType, setPokeType] = useState(['']);
     let [mapSelected, setMapSelected] = useState(location.state.mapSelected)
-    let [srcGif, setSrcGif] = useState(['']);
-
-    
 
     async function findPokemon(pokemon){
 
@@ -64,55 +60,47 @@ function Game(){
     }
 
     async function catchPokemon(){
-        let id, type, userId, name, move1, move2, move3, srcImg, favorite;
+        console.log("Pokename é: ");
+        console.log(pokeName);
+        if (pokeName !== ''){
+            let id, type, userId, name, move1, move2, move3, srcImg, favorite;
+            document.getElementById("persona").style.visibility = 'hidden';
+            setMapSelected("capturando");
+            let response = await axios.get('https://pokeapi.co/api/v2/pokemon/'+pokeName + '/');
+            name = pokeName;
+            userId = user;
+            id = name + userId;
+            type = response.data.types[0].type.name;
+            srcImg = response.data.sprites.front_default;
+            move1 = response.data.moves[0].move.name;
+            move2 = response.data.moves[1].move.name;
+            move3 = response.data.moves[2].move.name;
+            favorite = false;
 
-        document.getElementById("persona").style.visibility = 'hidden';
+            let response2 = await 
 
-        setMapSelected("capturando");
-        console.log("--------------------------")
-        console.log('SRC ATUAL DO GIF');
-        console.log(srcGif);
-        console.log("--------------------------")
-        console.log("SRC NORMAL DO GIF (é esperado o valor '/static/media/catching.1ea513d9da9781da6e8b.gif')");
-        setSrcGif(catching);
-        console.log(srcGif);
-        console.log("--------------------------")
-
-        let response = await axios.get('https://pokeapi.co/api/v2/pokemon/'+pokeName + '/');
-        name = pokeName;
-        userId = user;
-        id = name + userId;
-        type = response.data.types[0].type.name;
-        srcImg = response.data.sprites.front_default;
-        move1 = response.data.moves[0].move.name;
-        move2 = response.data.moves[1].move.name;
-        move3 = response.data.moves[2].move.name;
-        favorite = false;
-
-        let response2 = await 
-
-        axios.post('http://localhost:8000/game/', {
-            "id": id,
-            "idUser": userId,
-            "name": name,
-            "type": type,
-            "move1": move1,
-            "move2": move2,
-            "move3": move3,
-            "srcImg": srcImg,
-            "favorite": favorite,
-        })
-        .then((response2) => {
-        // console.log(response2.data);
-        }, (error) => {
-        console.log(error);
-        });
-        // console.log("Postou!")
-        setPokeImg('');
-        setPokeName('');
-        setPokeType('');
-        
-        // alert("Capturado!");    
+            axios.post('http://localhost:8000/game/', {
+                "id": id,
+                "idUser": userId,
+                "name": name,
+                "type": type,
+                "move1": move1,
+                "move2": move2,
+                "move3": move3,
+                "srcImg": srcImg,
+                "favorite": favorite,
+            })
+            .then((response2) => {
+            console.log(response2.data);
+            }, (error) => {
+            console.log(error);
+            });
+            console.log("Postou!")
+            setPokeImg('');
+            setPokeName('');
+            setPokeType('');
+            document.getElementById("gif").src=catching;   
+        } 
     }
 
     const handleKey = (event) => {
@@ -168,12 +156,18 @@ function Game(){
 
         let number = randomInt(0,20);
 
-        if(number < 10){
+        if(number < 2 && mapSelected !== 'capturando'){
             let pokemon_name = all_pokemons[randomInt(0, all_pokemons.length)];
             findPokemon(pokemon_name)
         }
+        else{
+            setPokeName('');
+        }
 
     }, [top, left, mapSelected]);
+
+
+    
 
     function voltarMenu(){
         navigate('/menu', {state: {username:user}} );
@@ -182,13 +176,9 @@ function Game(){
 
     function voltaMapa(){
         setMapSelected(location.state.mapSelected);
-        console.log("--------------------------")
-        console.log("srcgif da volta mapa (é esperado o valor 'ALGO MUDADO'):");
-        setSrcGif('ALGO MUDADO');
-        console.log(srcGif); 
-        console.log("--------------------------\n");
         document.getElementById("persona").style.visibility=  'visible';
-        
+        document.getElementById('gif').src='nada';
+        //console.log(document.getElementById('gif').src); 
     }
 
     return (
@@ -209,7 +199,7 @@ function Game(){
                                     {mapSelected == 3 ? <img src = {map3} className= "imgMapGame" alt="mapa3"></img>:
                                         <>
                                             <button onClick={voltaMapa} className="close" >&times;</button>
-                                            <img src = {srcGif} className= "imgMapGame" alt="gif"></img>
+                                            <img src={catching} className= "imgMapGame" id="gif" alt="gif" loop="infinite"></img>
                                         </>
                                     }
 
