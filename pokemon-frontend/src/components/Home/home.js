@@ -9,7 +9,7 @@ function Home(){
 
     const [srcs, setSrcs] = useState([]);
     const [types, setTypes] = useState([]);
-    const [inicialPokemon, setInicialPokemon] = useState("");
+    const [inicialPokemon, setInicialPokemon] = useState("pikachu");
     const pokemonsInicias = ["bulbasaur", "charmander", "squirtle", "pikachu"];
     
     const navigate = useNavigate();

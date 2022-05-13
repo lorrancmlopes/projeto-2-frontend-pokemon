@@ -6,7 +6,7 @@ import { useNavigate , useLocation} from "react-router-dom";
 import map1 from "./sprites/map1.png";
 import map2 from "./sprites/map2.png";
 import map3 from "./sprites/map3.png";
-import persona from "./sprites/persona.png";
+import persona from "./sprites/personaAsh.png";
 import radar from "./sprites/radar.gif";
 import catching from "./sprites/catching.gif";
 
@@ -207,7 +207,7 @@ function Game(){
                                 } 
                             </>
                         }
-                        <img src = {persona} id="persona" alt ="personsa"></img>
+                        <img src = {persona} className="persona"id="persona" alt ="personsa"></img>
                     </div>  
 
                     <div className="radarContainer">
