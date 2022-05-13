@@ -1,10 +1,12 @@
 import { Link, useNavigate , useLocation } from "react-router-dom";
 import  React , { useState } from "react";
 import axios from 'axios';
+
 import './loginRegister.css';
 
 import pikachu from "./pikachu.gif";
 import Background from "../AnimatedBackground/backgroung.js";
+import Song from "../BackgroundSong/bgSong.js";
 
 
 // Senha sempre válida: 
@@ -85,6 +87,7 @@ function LoginOrRegister(){
 
     return (
         <>
+            <Song></Song>
             <Background></Background>
 
             <div className="backScreenLogin">

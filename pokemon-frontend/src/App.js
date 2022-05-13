@@ -1,11 +1,13 @@
 import { BrowserRouter as Router , Route, Routes  } from "react-router-dom";
 import './App.css';
+import Sound from 'react-sound';
 
 import LoginOrRegister from './components/LoginOrRegister/loginRegister.js'
 import Home from './components/Home/home.js'
 import Menu from './components/Menu/menu.js'
 import Game from './components/Game/game.js';
 import MyPokemons from "./components/MyPokemons/myPokemons";
+import PokemonTheme from "../src/PokemonTheme.mp3";
 
 function App() {
   return (
