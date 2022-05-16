@@ -1,5 +1,5 @@
 .AllCaughtCard {
-    height: 50%;
+    height: 55%;
     width: 20%;
     
     border-radius: 0.8rem;
@@ -17,10 +17,14 @@
 }
 
 .infoPokeCardName{
-    font-size: medium;
-}
-
-.infoPokeCardType{
     font-size: small;
 }
 
+.infoPokeCardType{
+    font-size: x-small;
+}
+
+.imageAllCaught{
+    height: 5.5rem;
+    margin-top: -0.8rem;
+}

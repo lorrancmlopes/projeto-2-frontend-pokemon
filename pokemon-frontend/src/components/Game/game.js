@@ -61,46 +61,55 @@ function Game(){
 
     async function catchPokemon(){
         console.log("Pokename é: ");
-        console.log(pokeName);
-        if (pokeName !== ''){
-            let id, type, userId, name, move1, move2, move3, srcImg, favorite;
-            document.getElementById("persona").style.visibility = 'hidden';
-            setMapSelected("capturando");
-            let response = await axios.get('https://pokeapi.co/api/v2/pokemon/'+pokeName + '/');
-            name = pokeName;
-            userId = user;
-            id = name + userId;
-            type = response.data.types[0].type.name;
-            srcImg = response.data.sprites.front_default;
-            move1 = response.data.moves[0].move.name;
-            move2 = response.data.moves[1].move.name;
-            move3 = response.data.moves[2].move.name;
-            favorite = false;
+        // console.log(pokeName);
 
-            let response2 = await 
+        navigate('/choosepokemon', {state:{username: user, enemy:pokeName}})
+        // if (pokeName !== ''){
+        //     let id, type, userId, name, move1, move2, move3, srcImg, favorite, srcImgBack, hp, level;
+        //     document.getElementById("persona").style.visibility = 'hidden';
+        //     setMapSelected("capturando");
+        //     let response = await axios.get('https://pokeapi.co/api/v2/pokemon/'+pokeName + '/');
+        //     name = pokeName;
+        //     userId = user;
+        //     id = name + userId;
+        //     type = response.data.types[0].type.name;
+        //     srcImg = response.data.sprites.front_default;
+        //     srcImgBack = response.data.sprites.back_default
+        //     move1 = response.data.moves[0].move.name;
+        //     move2 = response.data.moves[1].move.name;
+        //     move3 = response.data.moves[2].move.name;
+        //     favorite = false;
 
-            axios.post('http://localhost:8000/game/', {
-                "id": id,
-                "idUser": userId,
-                "name": name,
-                "type": type,
-                "move1": move1,
-                "move2": move2,
-                "move3": move3,
-                "srcImg": srcImg,
-                "favorite": favorite,
-            })
-            .then((response2) => {
-            console.log(response2.data);
-            }, (error) => {
-            console.log(error);
-            });
-            console.log("Postou!")
-            setPokeImg('');
-            setPokeName('');
-            setPokeType('');
-            document.getElementById("gif").src=catching;   
-        } 
+        //     hp = '250';
+        //     level = '5'; 
+
+        //     let response2 = await 
+
+        //     axios.post('http://localhost:8000/game/', {
+        //         "id": id,
+        //         "idUser": userId,
+        //         "name": name,
+        //         "type": type,
+        //         "move1": move1,
+        //         "move2": move2,
+        //         "move3": move3,
+        //         "srcImg": srcImg,
+        //         "srcImgBack": srcImgBack,
+        //         "hp":hp,
+        //         "level":level,
+        //         "favorite": favorite,
+        //     })
+        //     .then((response2) => {
+        //     console.log(response2.data);
+        //     }, (error) => {
+        //     console.log(error);
+        //     });
+        //     console.log("Postou!")
+        //     setPokeImg('');
+        //     setPokeName('');
+        //     setPokeType('');
+        //     document.getElementById("gif").src=catching;   
+        // } 
     }
 
     const handleKey = (event) => {

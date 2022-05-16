@@ -7,6 +7,7 @@ import Home from './components/Home/home.js'
 import Menu from './components/Menu/menu.js'
 import Game from './components/Game/game.js';
 import MyPokemons from "./components/MyPokemons/myPokemons";
+import Battle from "./components/Battle/battle.js"
 import PokemonTheme from "../src/PokemonTheme.mp3";
 
 function App() {
@@ -20,6 +21,8 @@ function App() {
           <Route exact path="/menu" element={<Menu/>}/>
           <Route exact path="/game" element={<Game/>}/>
           <Route exact path="/pokemons" element={<MyPokemons/>}/>
+          <Route exact path="/choosepokemon" element={<MyPokemons/>}/>
+          <Route exact path="/battle" element={<Battle/>}/>
         </Routes >
       </Router>
     </div>
