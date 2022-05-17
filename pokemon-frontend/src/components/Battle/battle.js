@@ -21,7 +21,7 @@ function Battle(props){
     let username = location.state.username
     let enemy = location.state.enemy
 
-    let [damage , setDamage] = useState(0);
+    let [damage , setDamage] = useState(10);
     let [fimPartida, setFimPartida] = useState(false);
     let [notAttack, setNotAttack] = useState(false);
 
@@ -86,21 +86,21 @@ function Battle(props){
         let shoot = randomInt(0,10);
 
         if(shoot<=2 & !fimPartida & !notAttack){
-            if(hp - 45 <0){
+            if(hp - 30 <0){
                 setHp(0)
                 setFimPartida(true)
                 console.log("Perdeu!")
             }else{
-                setHp(hp - 45)
+                setHp(hp - 30)
             }
             
         } else if(shoot<=5 & shoot >2 & !fimPartida & !notAttack){
-            if(hp - 25 <0){
+            if(hp - 20 <0){
                 setHp(0)
                 setFimPartida(true)
                 console.log("Perdeu!")
             }else{
-                setHp(hp - 25)
+                setHp(hp - 20)
             }
         }else if(!fimPartida & !notAttack){
             if(hp - 15 <0){
@@ -120,6 +120,7 @@ function Battle(props){
             setFimPartida(true)
             console.log("Capturou!")
         }else if (!fimPartida){
+            console.log("O damage: "+damage)
             setHpEnemy(hpEnemy-damage);
             tookHit()
         }    
@@ -128,32 +129,22 @@ function Battle(props){
     function onChangeValue (event){
         if(event.target.value === 'move1'){
             let number = randomInt(0,10);
-            if(number<=1){
+            if(number<=2){
                 setDamage(80)
-            }else if(number<=3){
-                setDamage(5)
             }else{
-                setDamage(0)
+                setDamage(5)
             }
 
         }else if(event.target.value === 'move2'){
             let number = randomInt(0,10);
             if(number<=5){
                 setDamage(40)
-            }else if(number<=7){
-                setDamage(20)
             }else{
-                setDamage(0)
+                setDamage(5)
             }
 
         }else if(event.target.value === 'move3'){
-            let number = randomInt(0,10);
-            if(number<=8){
-                setDamage(15)
-            }else{
-                setDamage(10)
-            }
-
+            setDamage(10)
         }else{
             alert("Escolha um ataque!");
             setNotAttack(true)
@@ -190,7 +181,7 @@ function Battle(props){
                             <div className="myPokemonContent">
                                 <div className="infoMyPokemonTitle"><h4> {battlePokemonName} </h4> </div>
                                 <div className="infoMyPokemon"><h4>Level :&ensp;</h4> {level}</div>
-                                <div className="infoMyPokemon"><h4>HP :&ensp;</h4>{hp}</div>
+                                <div className="infoMyPokemon"><h4>XP :&ensp;</h4>{hp}</div>
                             </div>
 
                         </div>
@@ -207,38 +198,38 @@ function Battle(props){
 
                             <div className="movesOptions"  onChange={(event)=>onChangeValue(event)}>
                                 <div className="actionsCards">
-                                    <input type="radio" name="move1" value="move1" className="selectMove"></input>
+                                    <input type="radio" name="move" value="move1" className="selectMove"></input>
                                     <div className="moveInfo">
                                         <h4 className="moveName">
                                             {move1}
                                         </h4>
                                         <div className="descriptionMove">
                                             <h4 className="informationMove">Accuracy : 10 %</h4>
-                                            <h4>Damage: Hight</h4>     
+                                            <div id="informationDamage">Damage:&ensp;<h4 className="hightDamage">Hight</h4></div>     
                                         </div>
                                     </div>
                                 </div>
                                 <div className="actionsCards">
-                                    <input type="radio" name="move2" value="move2" className="selectMove"></input>
+                                    <input type="radio" name="move" value="move2" className="selectMove"></input>
                                     <div className="moveInfo">
                                         <h4 className="moveName">
                                             {move2}
                                         </h4>
                                         <div className="descriptionMove">
                                             <h4 className="informationMove">Accuracy : 50 %</h4>
-                                            <h4>Damage: Medium</h4>     
+                                            <div id="informationDamage">Damage:&ensp;<h4 className="mediumDamage">Medium</h4></div>     
                                         </div>
                                     </div>
                                 </div>
                                 <div className="actionsCards">
-                                    <input type="radio" name="move3" value="move3" className="selectMove" defaultChecked></input>
+                                    <input type="radio" name="move" value="move3" className="selectMove" defaultChecked></input>
                                     <div className="moveInfo">
                                         <h4 className="moveName">
                                             {move3}
                                         </h4>
                                         <div className="descriptionMove">
                                             <h4 className="informationMove">Accuracy : 80 %</h4>
-                                            <h4>Damage: Low</h4>     
+                                            <div id="informationDamage">Damage:&ensp;<h4 className="lowDamage">Low</h4></div>     
                                         </div>
                                     </div>
                                 </div>

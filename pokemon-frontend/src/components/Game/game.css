@@ -3,11 +3,6 @@
     position: absolute;
 
     left: 50%;
-    margin-left: -12rem;
-    top: 50%;
-    margin-top: -11rem;
-
-    left: 50%;
     margin-left: -25rem;
     top: 50%;
     margin-top: -12rem;
@@ -26,6 +21,8 @@
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+
+    margin-top: -1rem;
 }
 
 .mapGame{

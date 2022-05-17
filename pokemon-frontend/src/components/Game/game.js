@@ -165,7 +165,7 @@ function Game(){
 
         let number = randomInt(0,20);
 
-        if(number < 2 && mapSelected !== 'capturando'){
+        if(number < 20 && mapSelected !== 'capturando'){
             let pokemon_name = all_pokemons[randomInt(0, all_pokemons.length)];
             findPokemon(pokemon_name)
         }
