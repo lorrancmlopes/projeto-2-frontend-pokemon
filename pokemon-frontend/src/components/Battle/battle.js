@@ -6,6 +6,12 @@ import arena from './arena2.png'
 
 const axios = require("axios");
 
+function randomInt(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
 function Battle(props){
 
     const navigate = useNavigate();
@@ -15,7 +21,9 @@ function Battle(props){
     let username = location.state.username
     let enemy = location.state.enemy
 
-    let [damage , setDamage] = useState(0)
+    let [damage , setDamage] = useState(0);
+    let [fimPartida, setFimPartida] = useState(false);
+    let [notAttack, setNotAttack] = useState(false);
 
     // Meu pokemon :
     const [srcImgBack, setsrcImgBack] = useState([''])
@@ -72,11 +80,84 @@ function Battle(props){
                 }
                 
             }, (error) => console.log(error));
+    }
 
+    function tookHit(){
+        let shoot = randomInt(0,10);
+
+        if(shoot<=2 & !fimPartida & !notAttack){
+            if(hp - 45 <0){
+                setHp(0)
+                setFimPartida(true)
+                console.log("Perdeu!")
+            }else{
+                setHp(hp - 45)
+            }
+            
+        } else if(shoot<=5 & shoot >2 & !fimPartida & !notAttack){
+            if(hp - 25 <0){
+                setHp(0)
+                setFimPartida(true)
+                console.log("Perdeu!")
+            }else{
+                setHp(hp - 25)
+            }
+        }else if(!fimPartida & !notAttack){
+            if(hp - 15 <0){
+                setHp(0)
+                setFimPartida(true)
+                console.log("Perdeu!")
+            }else{
+                setHp(hp - 15)
+            }
+        }
+    }
+
+    function applyDamage (){
+
+        if(hpEnemy-damage<0 & !fimPartida){
+            setHpEnemy(0)
+            setFimPartida(true)
+            console.log("Capturou!")
+        }else if (!fimPartida){
+            setHpEnemy(hpEnemy-damage);
+            tookHit()
+        }    
     }
 
     function onChangeValue (event){
-        console.log(event.target.value)
+        if(event.target.value === 'move1'){
+            let number = randomInt(0,10);
+            if(number<=1){
+                setDamage(80)
+            }else if(number<=3){
+                setDamage(5)
+            }else{
+                setDamage(0)
+            }
+
+        }else if(event.target.value === 'move2'){
+            let number = randomInt(0,10);
+            if(number<=5){
+                setDamage(40)
+            }else if(number<=7){
+                setDamage(20)
+            }else{
+                setDamage(0)
+            }
+
+        }else if(event.target.value === 'move3'){
+            let number = randomInt(0,10);
+            if(number<=8){
+                setDamage(15)
+            }else{
+                setDamage(10)
+            }
+
+        }else{
+            alert("Escolha um ataque!");
+            setNotAttack(true)
+        }
     }
 
     useEffect(() => {
@@ -138,7 +219,7 @@ function Battle(props){
                                     </div>
                                 </div>
                                 <div className="actionsCards">
-                                    <input type="radio" name="move1" value="move2" className="selectMove"></input>
+                                    <input type="radio" name="move2" value="move2" className="selectMove"></input>
                                     <div className="moveInfo">
                                         <h4 className="moveName">
                                             {move2}
@@ -150,7 +231,7 @@ function Battle(props){
                                     </div>
                                 </div>
                                 <div className="actionsCards">
-                                    <input type="radio" name="move1" value="move3" className="selectMove"></input>
+                                    <input type="radio" name="move3" value="move3" className="selectMove" defaultChecked></input>
                                     <div className="moveInfo">
                                         <h4 className="moveName">
                                             {move3}
@@ -164,7 +245,7 @@ function Battle(props){
                             </div>
 
                             <div className="attackButton">
-                                <button className="attack">
+                                <button className="attack" onClick={applyDamage}>
                                     Attack !
                                 </button>
                             </div>

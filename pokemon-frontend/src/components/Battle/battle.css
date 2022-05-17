@@ -108,7 +108,7 @@
 .myPokemonSprite{
     margin-right: 6rem;
     margin-top: 3rem;
-    width: 12rem;
+    width: 15rem;
 }
 
 
@@ -127,7 +127,7 @@
     
 
     width: 100%;
-    height: 12%;
+    height: 10%;
 }
 
 .contentHeaderBattle{
@@ -172,7 +172,7 @@
     width: 100%;
     height: 30%;
 
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    /* box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); */
 }
 
 .selectMove{
@@ -233,7 +233,7 @@
 }
 
 .attack{
-    width: 60%;
+    width: 80%;
     height: 90%;
 
     cursor: pointer;
