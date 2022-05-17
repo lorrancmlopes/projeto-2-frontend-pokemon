@@ -1,12 +1,11 @@
 import { Link, useNavigate , useLocation } from "react-router-dom";
-import  React , { useState } from "react";
+import  React , { useState, useEffect } from "react";
 import axios from 'axios';
 
 import './loginRegister.css';
 
 import pikachu from "./pikachu.gif";
 import Background from "../AnimatedBackground/backgroung.js";
-import Song from "../BackgroundSong/bgSong.js";
 
 
 // Senha sempre válida: 
@@ -92,9 +91,17 @@ function LoginOrRegister(){
         console.log("dei o playyyyy. Tá tocando?");
     }
 
+
+    useEffect(()=>{
+        document.getElementById('musicTheme').play();
+        console.log("dei o playyyyy. Tá tocando?");
+        
+        
+    }, [])
+
     return (
         <>
-            <Song></Song>
+            
             <Background></Background>
 
             <div className="backScreenLogin">
@@ -114,7 +121,7 @@ function LoginOrRegister(){
                         </div>
 
                         {location.pathname == '/' ? 
-                        <button type="submit" onClick={tocaMusica} className="btn_loginRegister">Login</button> : <button className="btn_loginRegister" type="submit" onClick={()=>{}}>Create</button>
+                        <button type="submit" className="btn_loginRegister">Login</button> : <button className="btn_loginRegister" type="submit" onClick={()=>{}}>Create</button>
                         }
                     </form>
 
