@@ -76,7 +76,7 @@ function Battle(props){
                     setmove1Enemy(response.data.moves[0].move.name);
                     setmove2Enemy(response.data.moves[1].move.name);
                     setmove3Enemy(response.data.moves[2].move.name);
-                    setbaseExperienceEnemy(response.data.abilities.base_experience)
+                    setbaseExperienceEnemy(response.data.base_experience);
                 }
                 
             }, (error) => console.log(error));
@@ -111,6 +111,8 @@ function Battle(props){
                 setHp(hp - 15)
             }
         }
+
+        shakeMyPokemon()
     }
 
     function applyDamage (){
@@ -122,7 +124,8 @@ function Battle(props){
         }else if (!fimPartida){
             console.log("O damage: "+damage)
             setHpEnemy(hpEnemy-damage);
-            tookHit()
+            shakePokemonEnemy()
+            setTimeout(() => { tookHit(); }, 500);
         }    
     }
 
@@ -150,6 +153,23 @@ function Battle(props){
             setNotAttack(true)
         }
     }
+
+    function shakePokemonEnemy(){
+
+        const element =  document.querySelector('.enemySprite');
+        element.classList.add('shake');
+        setTimeout(function() {
+          element.classList.remove('shake'); 
+        }, 500); 
+    }
+
+    function shakeMyPokemon(){
+        const element =  document.querySelector('.myPokemonSprite');
+        element.classList.add('shake');
+        setTimeout(function() {
+          element.classList.remove('shake'); 
+        }, 500); 
+    }   
 
     useEffect(() => {
         getEnemyPokemon()
