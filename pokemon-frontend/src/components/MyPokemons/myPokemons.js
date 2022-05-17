@@ -18,17 +18,23 @@ function MyPokemons(props){
     const username = location.state.username
 
     function voltaMenu(){
-        navigate('/menu', {state: {username:username}} );
+        navigate('/menu', {state: {username:username, mapSelected:location.state.mapSelected
+        }} );
     }
 
     function voltaGame(){
-        navigate('/game', {state: {username:username}} );
+        navigate('/game', {state: {username:username, mapSelected:location.state.mapSelected}} );
     }
 
     function goBattle(){
 
         if(battlePokemon != ''){
-            navigate('/battle', {state: {username:username, battlePokemon:battlePokemon, enemy:location.state.enemy}});
+            document.getElementById('musicTheme').pause();
+            document.getElementById('musicTheme').currentTime = 0; //isso é parar parar a principal
+
+            document.getElementById('musicBattle').play();
+            console.log("dei o play na battleSong. Tá tocando?");
+            navigate('/battle', {state: {username:username, battlePokemon:battlePokemon, enemy:location.state.enemy, mapSelected:location.state.mapSelected}});
         }else {
             alert("Selecione um pokemon!");
         }
