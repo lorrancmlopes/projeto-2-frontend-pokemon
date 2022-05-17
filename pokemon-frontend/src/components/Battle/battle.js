@@ -69,7 +69,7 @@ function Battle(props){
     }
 
 
-    async function postPokemon(){
+    async function postPokemonAndLevelUp(){
         let id = enemy + username;
 
         axios.post('http://localhost:8000/game/', {
@@ -92,6 +92,17 @@ function Battle(props){
         console.log(error);
         });
         console.log("Postou!")
+
+        axios.post('http://localhost:8000/pokemons/'+ username + '/' + battlePokemonName, {
+            "level": String(parseInt(level)+1)
+        })
+        .then((response2) => {
+        console.log(response2.data);
+        }, (error) => {
+        console.log(error);
+        });
+        console.log("Level up!")
+
 }
 
     async function getEnemyPokemon(){
@@ -235,7 +246,7 @@ function Battle(props){
         document.getElementById('gif').src='nada';
         navigate('/game', {state: {username:location.state.username, mapSelected:location.state.mapSelected}} );
         console.log("Apertou o botão fechar");
-        postPokemon();
+        postPokemonAndLevelUp();
         console.log("postou!")
     }
 
@@ -260,7 +271,7 @@ function Battle(props){
                                 <div className="infoEnemy"><h4>Level:&ensp;</h4> {levelEnemy}</div>
                                 <div className="infoEnemy"><h4>Type:&ensp;</h4>{ typeEnemy}</div>
                                 <div className="infoEnemy"><h4>Experience:&ensp;</h4>{baseExperienceEnemy}</div>
-                                <div className="infoEnemy"><h4>HP:&ensp;</h4>{hpEnemy}</div>
+                                <div className="infoEnemyHP"><h4>HP:&ensp;</h4>{hpEnemy}</div>
                             </div>
 
                             <img src = {srcImgEnemy} alt="enemy" className="enemySprite"></img>
@@ -272,7 +283,7 @@ function Battle(props){
                             <div className="myPokemonContent">
                                 <div className="infoMyPokemonTitle"><h4> {String(battlePokemonName)[0].toUpperCase() + String(battlePokemonName).substr(1)} </h4> </div>
                                 <div className="infoMyPokemon"><h4>Level :&ensp;</h4> {level}</div>
-                                <div className="infoMyPokemon"><h4>XP :&ensp;</h4>{hp}</div>
+                                <div className="infoMyPokemonHP"><h4>HP :&ensp;</h4>{hp}</div>
                             </div>
 
                         </div>
@@ -292,7 +303,7 @@ function Battle(props){
                                     <input type="radio" name="move" value="move1" className="selectMove"></input>
                                     <div className="moveInfo">
                                         <h4 className="moveName">
-                                            {move1}
+                                            {String(move1).toUpperCase()}
                                         </h4>
                                         <div className="descriptionMove">
                                             <h4 className="informationMove">Accuracy : 10 %</h4>
@@ -304,7 +315,7 @@ function Battle(props){
                                     <input type="radio" name="move" value="move2" className="selectMove"></input>
                                     <div className="moveInfo">
                                         <h4 className="moveName">
-                                            {move2}
+                                            {String(move2).toUpperCase()}
                                         </h4>
                                         <div className="descriptionMove">
                                             <h4 className="informationMove">Accuracy : 50 %</h4>
@@ -316,7 +327,7 @@ function Battle(props){
                                     <input type="radio" name="move" value="move3" className="selectMove" defaultChecked></input>
                                     <div className="moveInfo">
                                         <h4 className="moveName">
-                                            {move3}
+                                            {String(move3).toUpperCase()}
                                         </h4>
                                         <div className="descriptionMove">
                                             <h4 className="informationMove">Accuracy : 80 %</h4>

@@ -165,7 +165,7 @@ function Game(){
 
         let number = randomInt(0,20);
 
-        if(number < 20 && mapSelected !== 'capturando'){
+        if(number < 3 && mapSelected !== 'capturando'){
             let pokemon_name = all_pokemons[randomInt(0, all_pokemons.length)];
             findPokemon(pokemon_name)
         }
@@ -183,13 +183,6 @@ function Game(){
     function voltarMenu(){
         navigate('/menu', {state: {username:user}} );
         
-    }
-
-    function voltaMapa(){
-        setMapSelected(location.state.mapSelected);
-        document.getElementById("persona").style.visibility=  'visible';
-        document.getElementById('gif').src='nada';
-        //console.log(document.getElementById('gif').src); 
     }
 
     return (
@@ -226,7 +219,7 @@ function Game(){
                                     </div>
                                 
                                     <div className="pokemonInfo">
-                                        <h3 className="textInfoName">{pokeName}</h3>
+                                        <h3 className="textInfoName">{String(pokeName)[0].toUpperCase() + String(pokeName).substr(1)}</h3>
                                         <h3 className="textInfo">Type: {pokeType}</h3>
                                         <h3 className="textInfo">Experience: {baseExperience}</h3>
                                     </div>
