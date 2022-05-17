@@ -9,10 +9,13 @@ import Game from './components/Game/game.js';
 import MyPokemons from "./components/MyPokemons/myPokemons";
 import Battle from "./components/Battle/battle.js"
 import PokemonTheme from "../src/PokemonTheme.mp3";
+import BattleTheme from "../src/battleSong.mp3";
 
 function App() {
   return (
     <div className="App">
+        <audio id="musicTheme" src={PokemonTheme} type="audio/mp3" loop={true}/>
+        <audio id="musicBattle" src={BattleTheme} type="audio/mp3" loop={true}/>
       <Router>  
         <Routes >
           <Route exact path="/" element={<LoginOrRegister/>}/>

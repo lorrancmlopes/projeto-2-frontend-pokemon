@@ -63,7 +63,7 @@ function Game(){
         console.log("Pokename é: ");
         // console.log(pokeName);
 
-        navigate('/choosepokemon', {state:{username: user, enemy:pokeName}})
+        navigate('/choosepokemon', {state:{username: user, enemy:pokeName, mapSelected:mapSelected}})
         // if (pokeName !== ''){
         //     let id, type, userId, name, move1, move2, move3, srcImg, favorite, srcImgBack, hp, level;
         //     document.getElementById("persona").style.visibility = 'hidden';
@@ -173,6 +173,8 @@ function Game(){
             setPokeName('');
         }
 
+
+
     }, [top, left, mapSelected]);
 
 
@@ -205,13 +207,7 @@ function Game(){
                             <>
                                 {mapSelected == 2 ? <img src = {map2} className= "imgMapGame"alt="mapa2"></img> :
                                 <>
-                                    {mapSelected == 3 ? <img src = {map3} className= "imgMapGame" alt="mapa3"></img>:
-                                        <>
-                                            <button onClick={voltaMapa} className="close" >&times;</button>
-                                            <img src={catching} className= "imgMapGame" id="gif" alt="gif" loop="infinite"></img>
-                                        </>
-                                    }
-
+                                     <img src = {map3} className= "imgMapGame" alt="mapa3"></img>
                                 </>
                                 } 
                             </>

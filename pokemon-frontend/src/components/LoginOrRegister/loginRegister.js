@@ -83,6 +83,13 @@ function LoginOrRegister(){
 
         }
 
+
+
+    }
+
+    function tocaMusica(){
+        document.getElementById('musicTheme').play();
+        console.log("dei o playyyyy. Tá tocando?");
     }
 
     return (
@@ -107,7 +114,7 @@ function LoginOrRegister(){
                         </div>
 
                         {location.pathname == '/' ? 
-                        <button type="submit" onClick={()=>{}} className="btn_loginRegister">Login</button> : <button className="btn_loginRegister" type="submit" onClick={()=>{}}>Create</button>
+                        <button type="submit" onClick={tocaMusica} className="btn_loginRegister">Login</button> : <button className="btn_loginRegister" type="submit" onClick={()=>{}}>Create</button>
                         }
                     </form>
 

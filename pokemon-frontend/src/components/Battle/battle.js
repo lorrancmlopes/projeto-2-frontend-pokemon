@@ -3,6 +3,11 @@ import  React , { useState , useEffect} from "react";
 import Background from "../AnimatedBackground/backgroung.js";
 import './battle.css';
 import arena from './arena2.png'
+import AttackSound from "./atacou.mp3";
+import WinSound from "./ganhou.mp3";
+import catchingSong from "./PokemonCatch.mp3";
+import catching from "./catching.gif";
+
 
 const axios = require("axios");
 
@@ -23,6 +28,7 @@ function Battle(props){
 
     let [damage , setDamage] = useState(10);
     let [fimPartida, setFimPartida] = useState(false);
+    let [ganhou, setGanhou] = useState(false);
     let [notAttack, setNotAttack] = useState(false);
 
     // Meu pokemon :
@@ -62,6 +68,32 @@ function Battle(props){
         }, (error) => console.log(error));
     }
 
+
+    async function postPokemon(){
+        let id = enemy + username;
+
+        axios.post('http://localhost:8000/game/', {
+            "id": id,
+            "idUser": username,
+            "name": enemy,
+            "type": typeEnemy,
+            "move1": move1Enemy,
+            "move2": move2Enemy,
+            "move3": move3Enemy,
+            "srcImg": srcImgEnemy,
+            "srcImgBack": srcImgEnemyBack,
+            "hp":"250",
+            "level":"5",
+            "favorite": false,
+        })
+        .then((response2) => {
+        console.log(response2.data);
+        }, (error) => {
+        console.log(error);
+        });
+        console.log("Postou!")
+}
+
     async function getEnemyPokemon(){
         const url = 'https://pokeapi.co/api/v2/pokemon/'+enemy+'/'
 
@@ -90,6 +122,10 @@ function Battle(props){
                 setHp(0)
                 setFimPartida(true)
                 console.log("Perdeu!")
+                document.getElementById('musicBattle').pause();
+                document.getElementById('musicBattle').currentTime = 0;
+                document.getElementById('musicTheme').play();
+                navigate('/game', {state: {username:location.state.username, mapSelected:location.state.mapSelected}} );
             }else{
                 setHp(hp - 30)
             }
@@ -99,14 +135,23 @@ function Battle(props){
                 setHp(0)
                 setFimPartida(true)
                 console.log("Perdeu!")
+                document.getElementById('musicBattle').pause();
+                document.getElementById('musicBattle').currentTime = 0;
+                document.getElementById('musicTheme').play();
+                navigate('/game', {state: {username:location.state.username, mapSelected:location.state.mapSelected}} );
             }else{
                 setHp(hp - 20)
             }
         }else if(!fimPartida & !notAttack){
-            if(hp - 15 <0){
+            if(hp - 10 <0){
                 setHp(0)
                 setFimPartida(true)
                 console.log("Perdeu!")
+                document.getElementById('musicBattle').pause();
+                document.getElementById('musicBattle').currentTime = 0;
+                document.getElementById('musicTheme').play();
+                console.log("play na musica principal");
+                navigate('/game', {state: {username:location.state.username, mapSelected:location.state.mapSelected}} );
             }else{
                 setHp(hp - 15)
             }
@@ -116,13 +161,20 @@ function Battle(props){
     }
 
     function applyDamage (){
-
+        console.log("O damage atual é: " + damage)
         if(hpEnemy-damage<0 & !fimPartida){
+            document.getElementById('musicBattle').pause();
+            document.getElementById('musicBattle').currentTime = 0;
+            document.getElementById('musicCatch').play();
             setHpEnemy(0)
             setFimPartida(true)
-            console.log("Capturou!")
+            setGanhou(true);
+            console.log("Capturou!");
+            // navigate('/game', {state: {ganhou:ganhou}} );
         }else if (!fimPartida){
             console.log("O damage: "+damage)
+            document.getElementById('musicAtack').currentTime = 0;
+            document.getElementById('musicAtack').play();
             setHpEnemy(hpEnemy-damage);
             shakePokemonEnemy()
             setTimeout(() => { tookHit(); }, 500);
@@ -176,16 +228,35 @@ function Battle(props){
         getUserPokemonInformation()
     }, [])
 
+
+    function voltaMapa(){
+        document.getElementById('musicTheme').play();
+        console.log("play na musica principal");
+        document.getElementById('gif').src='nada';
+        navigate('/game', {state: {username:location.state.username, mapSelected:location.state.mapSelected}} );
+        console.log("Apertou o botão fechar");
+        postPokemon();
+        console.log("postou!")
+    }
+
     return (
         <>
             <Background></Background>
+            <audio id="musicAtack" src={AttackSound} type="audio/mp3" />
+            <audio id="musicCatch" src={catchingSong} type="audio/mp3" />
             <div className="backScreenBattle">
+                {ganhou == false ? 
+
+
+
+
+
                 <div className="containerBattle">
                     <div className="arena">
                         
                         <div className="enemyDiv">
                             <div className="enemyContent">
-                                <div className="infoEnemyTitle"><h4> {enemy} </h4> </div>
+                                <div className="infoEnemyTitle"><h4> {String(enemy)[0].toUpperCase() + String(enemy).substr(1)} </h4> </div>
                                 <div className="infoEnemy"><h4>Level:&ensp;</h4> {levelEnemy}</div>
                                 <div className="infoEnemy"><h4>Type:&ensp;</h4>{ typeEnemy}</div>
                                 <div className="infoEnemy"><h4>Experience:&ensp;</h4>{baseExperienceEnemy}</div>
@@ -199,7 +270,7 @@ function Battle(props){
                             <img src={srcImgBack} alt="myPokemon" className="myPokemonSprite"></img>
 
                             <div className="myPokemonContent">
-                                <div className="infoMyPokemonTitle"><h4> {battlePokemonName} </h4> </div>
+                                <div className="infoMyPokemonTitle"><h4> {String(battlePokemonName)[0].toUpperCase() + String(battlePokemonName).substr(1)} </h4> </div>
                                 <div className="infoMyPokemon"><h4>Level :&ensp;</h4> {level}</div>
                                 <div className="infoMyPokemon"><h4>XP :&ensp;</h4>{hp}</div>
                             </div>
@@ -263,6 +334,15 @@ function Battle(props){
                         
                     </div>
                 </div>
+
+            :
+            <>
+                <div className="Gif"  tabIndex="0"  >
+                    <button onClick={voltaMapa} className="close" >&times;</button>
+                    <img src={catching} className= "imgGif" id="gif" alt="gif" loop="infinite"></img>
+                </div>
+            </>
+            }
                 
             </div>
             
