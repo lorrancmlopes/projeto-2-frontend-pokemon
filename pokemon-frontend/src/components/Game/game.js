@@ -62,8 +62,9 @@ function Game(){
     async function catchPokemon(){
         console.log("Pokename é: ");
         // console.log(pokeName);
-
-        navigate('/choosepokemon', {state:{username: user, enemy:pokeName, mapSelected:mapSelected}})
+        if (pokeName !== ''){
+            navigate('/choosepokemon', {state:{username: user, enemy:pokeName, mapSelected:mapSelected}})
+        }
         // if (pokeName !== ''){
         //     let id, type, userId, name, move1, move2, move3, srcImg, favorite, srcImgBack, hp, level;
         //     document.getElementById("persona").style.visibility = 'hidden';

@@ -130,7 +130,10 @@ function Battle(props){
 
         if(shoot<=2 & !fimPartida & !notAttack){
             if(hp - 30 <0){
-                setHp(0)
+                setHp(0);
+        
+                document.getElementById("barMyPoke").style.width = `(${String(hp)}/250*100)%`;
+                console.log("HP: "+ String(hp));
                 setFimPartida(true)
                 console.log("Perdeu!")
                 document.getElementById('musicBattle').pause();
@@ -138,12 +141,22 @@ function Battle(props){
                 document.getElementById('musicTheme').play();
                 navigate('/game', {state: {username:location.state.username, mapSelected:location.state.mapSelected}} );
             }else{
-                setHp(hp - 30)
+                setHp(hp - 30);
+                console.log("HP: "+String(hp));
+                document.getElementById("barMyPoke").style.width = `(${String(hp)}/250*100)%`;
+                if (hp<=125 && hp>25){
+                    document.getElementById("barMyPoke").style.backgroundColor = `rgb(251, 255, 10)`;
+                }else if (hp<=50){
+                    document.getElementById("barMyPoke").style.backgroundColor = `rgb(255, 0, 0)`;
+                }
+
             }
             
         } else if(shoot<=5 & shoot >2 & !fimPartida & !notAttack){
             if(hp - 20 <0){
-                setHp(0)
+                setHp(0);
+                document.getElementById("barMyPoke").style.width = `(${String(hp)}/250*100)%`;
+                console.log("HP: "+String(hp));
                 setFimPartida(true)
                 console.log("Perdeu!")
                 document.getElementById('musicBattle').pause();
@@ -152,10 +165,19 @@ function Battle(props){
                 navigate('/game', {state: {username:location.state.username, mapSelected:location.state.mapSelected}} );
             }else{
                 setHp(hp - 20)
+                console.log("HP: "+String(hp));
+                document.getElementById("barMyPoke").style.width = `(${String(hp)}/250*100)%`;
+                if (hp<=125 && hp>25){
+                    document.getElementById("barMyPoke").style.backgroundColor = `rgb(251, 255, 10)`;
+                }else if (hp<=50){
+                    document.getElementById("barMyPoke").style.backgroundColor = `rgb(255, 0, 0)`;
+                }
             }
         }else if(!fimPartida & !notAttack){
             if(hp - 10 <0){
-                setHp(0)
+                setHp(0);
+                console.log("HP: "+String(hp));
+                document.getElementById("barMyPoke").style.width = `(${String(hp)}/250*100)%`;
                 setFimPartida(true)
                 console.log("Perdeu!")
                 document.getElementById('musicBattle').pause();
@@ -165,6 +187,13 @@ function Battle(props){
                 navigate('/game', {state: {username:location.state.username, mapSelected:location.state.mapSelected}} );
             }else{
                 setHp(hp - 15)
+                console.log("HP: "+String(hp));
+                document.getElementById("barMyPoke").style.width = `(${String(hp)}/250*100)%`;
+                if (hp<=125 && hp>25){
+                    document.getElementById("barMyPoke").style.backgroundColor = `rgb(251, 255, 10)`;
+                }else if (hp<=50){
+                    document.getElementById("barMyPoke").style.backgroundColor = `rgb(255, 0, 0)`;
+                }
             }
         }
 
@@ -177,7 +206,8 @@ function Battle(props){
             document.getElementById('musicBattle').pause();
             document.getElementById('musicBattle').currentTime = 0;
             document.getElementById('musicCatch').play();
-            setHpEnemy(0)
+            setHpEnemy(0);
+            document.getElementById("barEnemyPoke").style.width = `(${String(hpEnemy)}/250*100)%`;
             setFimPartida(true)
             setGanhou(true);
             console.log("Capturou!");
@@ -187,6 +217,12 @@ function Battle(props){
             document.getElementById('musicAtack').currentTime = 0;
             document.getElementById('musicAtack').play();
             setHpEnemy(hpEnemy-damage);
+            document.getElementById("barEnemyPoke").style.width = `(${String(hpEnemy)}/250*100)%`;
+            if (hpEnemy<=125 && hpEnemy>25){
+                document.getElementById("barEnemyPoke").style.backgroundColor = `rgb(251, 255, 10)`;
+            }else if (hpEnemy<=50){
+                document.getElementById("barEnemyPoke").style.backgroundColor = `rgb(255, 0, 0)`;
+            }
             shakePokemonEnemy()
             setTimeout(() => { tookHit(); }, 500);
         }    
@@ -240,6 +276,7 @@ function Battle(props){
     }, [])
 
 
+
     function voltaMapa(){
         document.getElementById('musicTheme').play();
         console.log("play na musica principal");
@@ -271,7 +308,10 @@ function Battle(props){
                                 <div className="infoEnemy"><h4>Level:&ensp;</h4> {levelEnemy}</div>
                                 <div className="infoEnemy"><h4>Type:&ensp;</h4>{ typeEnemy}</div>
                                 <div className="infoEnemy"><h4>Experience:&ensp;</h4>{baseExperienceEnemy}</div>
-                                <div className="infoEnemyHP"><h4>HP:&ensp;</h4>{hpEnemy}</div>
+                                {/* <div className="infoEnemyHP"><h4>HP:&ensp;</h4>{hpEnemy}</div> */}
+                                <div className="w3-light-grey">
+                                    <div id="barEnemyPoke" className="barMyPoke" style={{backgroundColor: "green", height: "24px", width: `${String((parseInt(String(hpEnemy))*100/250))}%`}}>{String(hpEnemy)} </div>
+                                </div><br></br>
                             </div>
 
                             <img src = {srcImgEnemy} alt="enemy" className="enemySprite"></img>
@@ -283,7 +323,10 @@ function Battle(props){
                             <div className="myPokemonContent">
                                 <div className="infoMyPokemonTitle"><h4> {String(battlePokemonName)[0].toUpperCase() + String(battlePokemonName).substr(1)} </h4> </div>
                                 <div className="infoMyPokemon"><h4>Level :&ensp;</h4> {level}</div>
-                                <div className="infoMyPokemonHP"><h4>HP :&ensp;</h4>{hp}</div>
+                                {/* <div className="infoMyPokemonHP"><h4>HP :&ensp;</h4>{hp}</div> */}
+                                <div className="w3-light-grey">
+                                    <div id="barMyPoke" className="barMyPoke" style={{backgroundColor: "green", height: "24px", width: `${String((parseInt(String(hp))*100/250))}%`}}>{String(hp)} </div>
+                                </div><br></br>
                             </div>
 
                         </div>

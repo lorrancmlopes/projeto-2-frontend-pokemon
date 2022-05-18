@@ -360,3 +360,15 @@
     justify-content: center;
     align-items: center;
 }
+
+
+.w3-light-grey{
+    width: 90%;
+}
+
+.barMyPoke{
+    background-color: green;
+    height: 24px;
+    width: 100%;
+}
+
