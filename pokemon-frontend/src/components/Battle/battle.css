@@ -1,0 +1,404 @@
+
+.backScreenBattle {
+    
+    position: absolute;
+
+    left: 50%;
+    margin-left: -25rem;
+    top: 50%;
+    margin-top: -12rem;
+
+    z-index:4;
+
+    width: 50rem;
+    height: 28rem;   
+
+}
+
+.containerBattle {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+
+    margin-top: -1rem;
+    font-family: 'Games', sans-serif;
+}
+
+.arena{
+
+    height: 90%;
+    width: 70%;
+
+    background-image: url('./sprites/arena.png');
+    background-repeat: no-repeat;
+    background-attachment: fixed;  
+    background-size: 65% 88%;
+    opacity: 1;
+
+    border-radius: 0.8rem;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    margin-right: 1rem;
+    
+}
+
+.enemyDiv, .pokemonDiv{
+    width: 100%;
+    height: 50%;
+
+    display: flex;
+
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.enemySprite{
+    width: 11rem;
+
+    margin-top: 4rem;
+    margin-left: 3rem;
+}
+
+.enemyContent , .myPokemonContent{
+    width:30%;
+    height: 80%;
+
+    background-color: white;
+    opacity: 0.8;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 0.2rem;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+
+    margin-top: 3rem;
+}
+
+.myPokemonContent{
+    height: 30%;
+    display: flex;
+    align-items: center;
+}
+
+.infoEnemy, .infoMyPokemon{
+    font-size: x-small;
+    /* height: 14%; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* margin-top: 0.5rem; */
+}
+
+.geralInfosEnemy{
+    font-size: x-small;
+    height: 60%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 0.5rem;
+}
+
+.headerInfoPoke{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    width: 100%;
+    height: 20%;
+
+    margin-top: 1rem;
+}
+
+.infoEnemyHP{
+    font-size: large;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 0rem;
+    margin: 0rem;
+    padding: -1rem;
+}
+
+.infoMyPokemon{
+    height: 22%;
+}
+
+.infoEnemyTitle, .infoMyPokemonTitle{
+    font-size: small;
+}
+
+.myPokemonSprite{
+    margin-right: 6rem;
+    margin-top: 3rem;
+    width: 12rem;
+}
+
+
+.movesPlayer{
+    background-color: white;
+    height: 90%;
+    width: 32%;
+
+    border-radius: 0.8rem;
+}
+
+.headerBattle{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+
+    width: 100%;
+    height: 10%;
+}
+
+.contentHeaderBattle{
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+    height: 100%;
+
+    text-align: center;
+
+    background-color: #1a3969;
+    border-top-left-radius: 0.8rem;
+    border-top-right-radius: 0.8rem;
+    border-bottom-left-radius: 0rem;
+    border-bottom-right-radius: 0rem;
+}
+
+.battleTitle{
+    font-size: medium;
+    color: white;
+
+    width: 100%;
+}
+
+.movesOptions{
+    width: 100%;
+    height: 75%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.actionsCards{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 30%;
+
+    /* box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); */
+}
+
+.selectMove{
+    width: 5%;
+    margin-right: 1rem;
+}
+
+.moveInfo{
+    width: 70%;
+    height: 85%;
+
+    background-color: white;
+    border-radius: 0.2rem;
+
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    /* background-color: aqua; */
+}
+
+.moveName{
+    font-size: medium;
+    height: 18%;
+    width: 100%;;
+    margin-bottom: 0rem;
+    color: #1a3969;
+}
+
+.descriptionMove{
+    font-size: Xx-small;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    height: 70%;
+    width: 100%;
+
+}
+
+.informationMove{
+    height: 5%;
+    margin-bottom: 0rem;
+    width: 100%;
+}
+
+#informationDamage{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+
+    justify-content: center;
+    align-items: center;
+}
+
+.hightDamage{
+    color: red;
+}
+
+.mediumDamage{
+    color: orange
+}
+
+.lowDamage{
+    color: green;
+}
+
+.attackButton{
+    height: 10%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.attack{
+    width: 80%;
+    height: 90%;
+
+    cursor: pointer;
+
+    border: none;
+	padding: 0;
+	outline: inherit;
+
+    background-color: rgb(0, 167, 50);
+
+    color: #f4f4f4;
+    font-size: medium;
+
+    border-radius: 0.2rem;    
+}
+
+.shake {
+    animation: shake 0.82s infinite;
+}
+
+@keyframes shake {
+    10%, 90% {
+      transform: translate3d(-1px, 0, 0);
+    }
+    
+    20%, 80% {
+      transform: translate3d(2px, 0, 0);
+    }
+  
+    30%, 50%, 70% {
+      transform: translate3d(-4px, 0, 0);
+    }
+  
+    40%, 60% {
+      transform: translate3d(4px, 0, 0);
+    }
+  }
+
+.attack:hover {
+    opacity: 0.9;
+}
+
+
+.close {
+    font-size: 45px;
+    font-weight: 600;
+    /* height: 10rem; */
+    position: absolute;
+    z-index: 2;
+    top: -0.3rem;
+    right: 10.5rem;
+    background-color: #1a3969;
+    height: 1.7rem;
+    width: 1.7rem;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1.2rem;
+    border-radius: 100%;
+    color: rgb(255, 205, 0);
+    border: none;
+    font-size: x-large;
+}
+
+
+
+.imgGif{
+    height: 95%;
+    width: 95%;
+    position: relative;
+}
+
+
+.Gif {
+    height: 100%;
+    width: 60%;
+    background-color: white;
+    opacity: 1;
+    border-radius: 0.8rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 10.6rem;
+}
+
+
+.infoMyPokemonHP{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.w3-light-grey{
+    width: 90%;
+    height: 1rem;
+
+    background-color: black;
+    border-radius: 0.2rem;
+    padding: 0.15rem;
+
+    margin-top: 1rem;
+}
+
+.barMyPoke{
+    background-color: green;
+    height: 60%;
+    width: 100%;
+
+    border-radius: 0.2rem;
+}
+

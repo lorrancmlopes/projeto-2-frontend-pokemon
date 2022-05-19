@@ -5,7 +5,7 @@
     left: 50%;
     margin-left: -25rem;
     top: 50%;
-    margin-top: -10rem;
+    margin-top: -9rem;
 
     z-index:4;
 
@@ -22,6 +22,8 @@
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+
+    margin-top: -1rem;
 }
 
 .mapGame{
@@ -191,4 +193,11 @@
 
 .load {
     width: 70%;
+}
+
+
+
+
+.persona{
+    width: 2rem;
 }

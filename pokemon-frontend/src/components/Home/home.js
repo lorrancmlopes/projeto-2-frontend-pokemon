@@ -9,7 +9,7 @@ function Home(){
 
     const [srcs, setSrcs] = useState([]);
     const [types, setTypes] = useState([]);
-    const [inicialPokemon, setInicialPokemon] = useState("");
+    const [inicialPokemon, setInicialPokemon] = useState("pikachu");
     const pokemonsInicias = ["bulbasaur", "charmander", "squirtle", "pikachu"];
     
     const navigate = useNavigate();
@@ -44,17 +44,23 @@ function Home(){
     async function postSelectedInicialPokemon(){
 
 
-        let id, type, userId, name, move1, move2, move3, srcImg, favorite
+        let id, type, userId, name, move1, move2, move3, srcImg, srcImgBack, favorite, hp, level
         let response = await axios.get('https://pokeapi.co/api/v2/pokemon/'+inicialPokemon + '/');
         name = inicialPokemon;
         userId = location.state.username;
         id = name + userId;
         type = response.data.types[0].type.name;
-        srcImg = response.data.sprites.front_default;
+        favorite = false;
+
         move1 = response.data.moves[0].move.name;
         move2 = response.data.moves[1].move.name;
         move3 = response.data.moves[2].move.name;
-        favorite = false;
+
+        srcImg = response.data.sprites.front_default;
+        srcImgBack = response.data.sprites.back_default
+
+        hp = '250';
+        level = '5';                                                /*Level inicial*/
 
         //let response2 = await 
         axios.post('http://localhost:8000/pokemon/', {
@@ -66,7 +72,10 @@ function Home(){
             "move2": move2,
             "move3": move3,
             "srcImg": srcImg,
+            "srcImgBack": srcImgBack,
             "favorite": favorite,
+            "hp": hp,
+            "level":level
         })
         .then((response2) => {
         console.log(response2.data);
@@ -94,49 +103,6 @@ function Home(){
         console.log("setou para true");
     }
 
-
-
-    // function handleUpdate(event){
-    //     event.preventDefault();
-        
-    //     if(location.pathname == '/'){
-
-    //         // Realizando um post para verificação da existencia ou nao de pokemon inicial 
-    //         axios({
-    //             method:'get',
-    //             url:"http://localhost:8000/users/"+location.state.username + "/", 
-    //         }).then(
-    //                 (resposta) => {
-    //                     if(resposta.selectedFirtsPokemon == true){
-    //                         navigate('/menu', {state:{username:location.state.username}});
-    //                     } 
-    //                 }, () => {
-    //                     navigate('/home', {state:{username:location.state.username}});
-    //         });
-            
-    //     } 
-    //     //else{
-
-    //     //     // cadastrando um novo usuario:
-    //     //     axios({
-    //     //         method:'post',
-    //     //         url:"http://localhost:8000/users/register", 
-    //     //         data:{
-    //     //           "name": user,
-    //     //           "password": password
-    //     //         },}).then(
-    //     //             (resposta) => {
-    //     //                 if(resposta.status == 200){
-    //     //                     navigate('/');
-    //     //                 } 
-    //     //             }, () => {
-    //     //                 alert("Usuário ja cadastrado!");
-    //     //                 navigate('/register');
-    //     //     });
-
-    //     // }
-
-
     return (
         <>  
             <Background></Background>
@@ -147,28 +113,32 @@ function Home(){
                     <div className="pokemonCard">
                         <img className="pokemonImage" alt="Bulbasaur" src={srcs[0]}/>
                         <p className="pokemonName">Bulbasaur</p>
-                        <p>Type: {types[0]}</p>
+                        <p className="descricao">Type: {types[0]}</p>
+                        <p className="descricao">Level: 5 </p>
                         <input type="radio" id="Bulbasaur" name="pokemonInicial" value="bulbasaur"></input>
                         <label for="Bulbasaur"></label>
                     </div>
                     <div className="pokemonCard">
                         <img className="pokemonImage" alt="Pikachu" src={srcs[1]}/>
                         <p className="pokemonName">Charmander</p>
-                        <p>Type: {types[1]}</p>
+                        <p className="descricao">Type: {types[1]}</p>
+                        <p className="descricao">Level: 5 </p>
                         <input type="radio" id="Charmander" name="pokemonInicial" value="charmander"></input>
                         <label for="Charmander"></label>
                     </div>
                     <div className="pokemonCard">
                         <img className="pokemonImage" alt="Charmander" src={srcs[2]}/>
                         <p className="pokemonName">Squirtle</p>
-                        <p>Type: {types[2]}</p>
+                        <p className="descricao">Type: {types[2]}</p>
+                        <p className="descricao">Level: 5 </p>
                         <input type="radio" id="Squirtle" name="pokemonInicial" value="squirtle"></input>
                         <label for="Squirtle"></label>
                     </div>
                     <div className="pokemonCard">
                         <img className="pokemonImage" alt="Squirtle" src={srcs[3]}/>
                         <p className="pokemonName">Pikachu</p>
-                        <p>Type: {types[3]}</p>
+                        <p className="descricao">Type: {types[3]}</p>
+                        <p className="descricao">Level: 5 </p>
                         <input type="radio" id="Pikachu" name="pokemonInicial" value="pikachu" checked></input>
                         <label for="Pikachu"></label>
                     </div>
