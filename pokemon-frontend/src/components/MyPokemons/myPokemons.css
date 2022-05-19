@@ -95,7 +95,6 @@
     border-radius: 60%;
     position: absolute;
     margin-left: -44.5rem;
-    /* margin-top: 0.25rem; */
     background-color: #1a3969;
     color: white;
     align-items: center;
@@ -104,6 +103,8 @@
     font-weight: bold;
     width: 1rem;
     height: 1.7rem;
+
+    cursor:pointer;
 }
 
 .backBotao:hover{
