@@ -2,11 +2,10 @@ import { useNavigate , useLocation } from "react-router-dom";
 import  React , { useState , useEffect} from "react";
 import Background from "../AnimatedBackground/backgroung.js";
 import './battle.css';
-import arena from './arena2.png'
-import AttackSound from "./atacou.mp3";
-import WinSound from "./ganhou.mp3";
-import catchingSong from "./PokemonCatch.mp3";
-import catching from "./catching.gif";
+import AttackSound from "./sprites/atacou.mp3";
+import WinSound from "./sprites/ganhou.mp3";
+import catchingSong from "./sprites/PokemonCatch.mp3";
+import catching from "./sprites/catching.gif";
 
 
 const axios = require("axios");
@@ -211,7 +210,6 @@ function Battle(props){
             setFimPartida(true)
             setGanhou(true);
             console.log("Capturou!");
-            // navigate('/game', {state: {ganhou:ganhou}} );
         }else if (!fimPartida){
             console.log("O damage: "+damage)
             document.getElementById('musicAtack').currentTime = 0;
@@ -294,23 +292,22 @@ function Battle(props){
             <audio id="musicCatch" src={catchingSong} type="audio/mp3" />
             <div className="backScreenBattle">
                 {ganhou == false ? 
-
-
-
-
-
                 <div className="containerBattle">
                     <div className="arena">
                         
                         <div className="enemyDiv">
                             <div className="enemyContent">
-                                <div className="infoEnemyTitle"><h4> {String(enemy)[0].toUpperCase() + String(enemy).substr(1)} </h4> </div>
-                                <div className="infoEnemy"><h4>Level:&ensp;</h4> {levelEnemy}</div>
-                                <div className="infoEnemy"><h4>Type:&ensp;</h4>{ typeEnemy}</div>
-                                <div className="infoEnemy"><h4>Experience:&ensp;</h4>{baseExperienceEnemy}</div>
-                                {/* <div className="infoEnemyHP"><h4>HP:&ensp;</h4>{hpEnemy}</div> */}
+                                <div className="headerInfoPoke">
+                                    <div className="infoEnemyTitle"><h4> {String(enemy)[0].toUpperCase() + String(enemy).substr(1)} </h4> </div>
+                                    <div className="infoEnemy"><h4>Lvl&ensp;</h4> {levelEnemy}</div>
+                                </div>
+                                <div className="geralInfosEnemy">
+                                    <div className="infoEnemy"><h4>Type:&ensp;</h4>{ typeEnemy}</div>
+                                    <div className="infoEnemy"><h4>Experience:&ensp;</h4>{baseExperienceEnemy}</div>
+                                </div>
+                                
                                 <div className="w3-light-grey">
-                                    <div id="barEnemyPoke" className="barMyPoke" style={{backgroundColor: "green", height: "24px", width: `${String((parseInt(String(hpEnemy))*100/250))}%`}}>{String(hpEnemy)} </div>
+                                    <div id="barEnemyPoke" className="barMyPoke" style={{backgroundColor: "green", height: "1rem", width: `${String((parseInt(String(hpEnemy))*100/250))}%`}}>{String(hpEnemy)} </div>
                                 </div><br></br>
                             </div>
 
@@ -321,11 +318,12 @@ function Battle(props){
                             <img src={srcImgBack} alt="myPokemon" className="myPokemonSprite"></img>
 
                             <div className="myPokemonContent">
-                                <div className="infoMyPokemonTitle"><h4> {String(battlePokemonName)[0].toUpperCase() + String(battlePokemonName).substr(1)} </h4> </div>
-                                <div className="infoMyPokemon"><h4>Level :&ensp;</h4> {level}</div>
-                                {/* <div className="infoMyPokemonHP"><h4>HP :&ensp;</h4>{hp}</div> */}
+                                <div className="headerInfoPoke">
+                                    <div className="infoMyPokemonTitle"><h4> {String(battlePokemonName)[0].toUpperCase() + String(battlePokemonName).substr(1)} </h4> </div>
+                                    <div className="infoMyPokemon"><h4>Lvl &ensp;</h4> {level}</div>
+                                </div>
                                 <div className="w3-light-grey">
-                                    <div id="barMyPoke" className="barMyPoke" style={{backgroundColor: "green", height: "24px", width: `${String((parseInt(String(hp))*100/250))}%`}}>{String(hp)} </div>
+                                    <div id="barMyPoke" className="barMyPoke" style={{backgroundColor: "green", height: "1rem", width: `${String((parseInt(String(hp))*100/250))}%`}}>{String(hp)} </div>
                                 </div><br></br>
                             </div>
 
