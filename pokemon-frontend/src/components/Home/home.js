@@ -32,7 +32,6 @@ function Home(){
     }
 
     useEffect(()=>{
-        console.log("vamor pegar os dados");
         pegaDados();
     },[]);
 
@@ -63,7 +62,7 @@ function Home(){
         level = '5';                                                /*Level inicial*/
 
         //let response2 = await 
-        axios.post('http://localhost:8000/pokemon/', {
+        axios.post('https://pokeway.herokuapp.com/pokemon/', {
             "id": id,
             "idUser": userId,
             "name": name,
@@ -83,7 +82,7 @@ function Home(){
         console.log(error);
         });
 
-        axios.post('http://localhost:8000/users/'+ userId +'/', {
+        axios.post('https://pokeway.herokuapp.com/users/'+ userId +'/', {
             "name": userId,
             "password": location.state.password,
             "selectedFirtsPokemon": true

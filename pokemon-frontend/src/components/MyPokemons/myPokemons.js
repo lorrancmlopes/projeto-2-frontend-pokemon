@@ -45,21 +45,19 @@ function MyPokemons(props){
         if(location.pathname == '/pokemons'){
             console.log("Nada a ser feito")
         }else{
-            console.log("Selecionado:");
             let selectedName = event.target.value;
             setBattlePokemon(selectedName);
         }
     }
 
     async function getPokemons(){
-        let response = await axios.get('http://localhost:8000/pokemons/'+username+'/');
+        let response = await axios.get('https://pokeway.herokuapp.com/pokemons/'+username+'/');
         let names = [];
         response.data.map((pokemon)=>(names.push({ "name": pokemon.name, "srcImg": pokemon.srcImg, "type": pokemon.type , "level":pokemon.level})));
         setPokeListNames(names);    
     }
     
     useEffect(()=>{
-        // console.log("vamor pegar os meus pokemons");
         getPokemons();
     },[]);
 

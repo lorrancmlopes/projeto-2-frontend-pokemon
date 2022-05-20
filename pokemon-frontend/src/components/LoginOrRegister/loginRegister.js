@@ -7,10 +7,6 @@ import './loginRegister.css';
 import pikachu from "./pikachu.gif";
 import Background from "../AnimatedBackground/backgroung.js";
 
-
-// Senha sempre válida: 
-// user: teste , senha: 12345
-
 function LoginOrRegister(){
     const [user, setUser] = useState('')
     const [password, setPassword] = useState('')
@@ -25,7 +21,7 @@ function LoginOrRegister(){
             // Realizando um post para verificação da existencia ou nao do usuario
             axios({
                 method:'post',
-                url:"http://localhost:8000/users/login", 
+                url:"https://pokeway.herokuapp.com/users/login", 
                 data:{
                   "name": user,
                   "password": password
@@ -37,7 +33,7 @@ function LoginOrRegister(){
                             // Realizando um get para verificação da existencia ou nao de pokemon inicial 
                             axios({
                                 method:'get',
-                                url:"http://localhost:8000/users/"+user + "/", 
+                                url:"https://pokeway.herokuapp.com/users/"+user + "/", 
                             }).then(
                                     (resposta) => {
                                          if(resposta.data.selectedFirtsPokemon == false){
@@ -51,9 +47,6 @@ function LoginOrRegister(){
                                     }
                             });
                         }
-
-
-                            // navigate('/home', {state:{username:user}});
                         } 
                     , () => {
                         alert("Usuario e/ou senha incorretos!");
@@ -65,7 +58,7 @@ function LoginOrRegister(){
             // cadastrando um novo usuario:
             axios({
                 method:'post',
-                url:"http://localhost:8000/users/register", 
+                url:"https://pokeway.herokuapp.com/users/register", 
                 data:{
                   "name": user,
                   "password": password,
@@ -86,12 +79,9 @@ function LoginOrRegister(){
 
     }
 
-
     useEffect(()=>{
         document.getElementById('musicTheme').play();
-        console.log("dei o playyyyy. Tá tocando?");
-        
-        
+        console.log("dei o playyyyy. Tá tocando?");    
     }, [])
 
     return (

@@ -51,7 +51,7 @@ function Battle(props){
 
     async function getUserPokemonInformation(){
         
-        const url = 'http://localhost:8000/pokemons/'+username+'/'+battlePokemonName;
+        const url = 'https://pokeway.herokuapp.com/pokemons/'+username+'/'+battlePokemonName;
 
         axios
         .get(url)
@@ -71,7 +71,7 @@ function Battle(props){
     async function postPokemonAndLevelUp(){
         let id = enemy + username;
 
-        axios.post('http://localhost:8000/game/', {
+        axios.post('https://pokeway.herokuapp.com/game/', {
             "id": id,
             "idUser": username,
             "name": enemy,
@@ -92,7 +92,7 @@ function Battle(props){
         });
         console.log("Postou!")
 
-        axios.post('http://localhost:8000/pokemons/'+ username + '/' + battlePokemonName, {
+        axios.post('https://pokeway.herokuapp.com/pokemons/'+ username + '/' + battlePokemonName, {
             "level": String(parseInt(level)+1)
         })
         .then((response2) => {
