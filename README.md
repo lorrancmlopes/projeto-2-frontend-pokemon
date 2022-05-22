@@ -1,70 +1,60 @@
-# Getting Started with Create React App
+# PokeWay : um game Pokémon 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## Descrição do Projeto
 
-In the project directory, you can run:
+<p align="justify">
 
-### `npm start`
+PokeWay é um jogo de caça aos Pokémons. O objetivo deste projeto é praticar o desenvolvimento e consumo de APIs REST. Frontend realizado em React e Backend realizado em Django utiliazando o banco de dados PostgreSQL (em um container Docker) .
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Features realizadas
 
-### `npm test`
+1. Log In e Sign Up
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+2. Consumo de <a href = "https://pokeapi.co/">API</a> para obter dados dos Pokemóns (inclusive imagens)
 
-### `npm run build`
+3. Desenvolvimento de API para criação e login de usuário, adição de Pokémon, level up.
+  
+4. Escolha de mapas para caçar Pokemóns
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+5. Reaproveitamento de telas, como no caso de consultar os Pokémons e escolher algum para batalha
+  
+6. Batalha de Pokémons com música, efeito sonoro e animações.
+  
+7. Uso de música em todas as telas do game.
+  
+8. Projeto disponibilizado pelo Heroku.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Instruções de uso 
+  
+> ### Rodando Localmente - Windows
 
-### `npm run eject`
+1. Realizar o clone do repositório.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+2. Garanta que você possui uma versão recente do <a href = "https://nodejs.org/en/">Node.js</a>. 
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+3. Com o terminal do Node.js no diretório do projeto, instale o projeto: 
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```bash
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+npm install
 
-## Learn More
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+4. Por fim, ainda com o terminal do Node.js no diretório do projeto, rode o comando abaixo e acesse `http://localhost:3000` no seu navegador:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```bash
 
-### Code Splitting
+npm start
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+```
 
-### Analyzing the Bundle Size
+> ### Acessando projeto via web (Aplicação Heroku)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+1. Apenas clique <a href = "https://pokewaygame.herokuapp.com/">aqui</a>.
 
-### Making a Progressive Web App
+<p align="center"><img src='https://thumbs.gfycat.com/LivelyBraveAmericanriverotter-size_restricted.gif'></img></p>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+@2022, Insper. Quarto Semestre, Engenharia da Computação.
