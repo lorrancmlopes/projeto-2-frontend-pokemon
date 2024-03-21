@@ -52,6 +52,7 @@ npm start
 ```
 
 > ### Acessando projeto via web (Aplicação Heroku)
+( Desatualizado - Necessitando migração )
 
 1. Apenas clique <a href = "https://pokewaygame.herokuapp.com/">aqui</a>.
 
